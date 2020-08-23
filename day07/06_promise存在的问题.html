@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  /*
+  *
+  * promise:
+  *   优点
+  *   1:把过程和结果分开了
+  *   2:回调地狱展开了 解决了回调地狱的问题
+  *
+  *   缺点
+  *   1:没有根本上解决回调的问题
+  *   2:每次执行的结果都是独立的
+  *
+  * es7中出现 async await 这俩哥们的出现就是为了解决回调的问题
+  *
+  * */
+
+  function getRandom() {
+    return new Promise(resolve => {
+      //promise resolve一般放在 异步里面
+      setTimeout(()=>{
+        resolve(random());
+      },500)
+    })
+  }
+
+  function random() {
+    return Math.floor(Math.random() * 20);
+  }
+
+
+  //async await 完美的解决了异步回调问题 同时也解决了promise的缺点
+  // let sum = 0;
+  // getRandom().then(res=>{
+  //   console.log(res);
+  //   sum += res;
+  //   return getRandom();
+  // }).then(res=>{
+  //   console.log(res);
+  //   sum += res;
+  //   return getRandom();
+  // }).then(res=>{
+  //   sum += res;
+  //   console.log(res, sum);
+  // })
+  //
+
+
+  //1:函数 前面加一个async关键字
+  //   async 有啥用? 此时函数内部就可以出现await关键字
+
+  //2:和promise做了同一件事情
+  //  async和await 解决了异步回调顺序的问题
+  async function add() {
+    //await 后面要跟着一个promise的对象  等待promise执行结束得到一个结果
+    let result1 = await getRandom();//result1 第一次执行promise的结果
+    console.log(result1);
+    let result2 = await getRandom();//result2 第二次执行promise的结果
+    console.log(result2);
+    let result3 = await getRandom();//result3 第三次执行promise的结果
+    console.log(result3);
+    console.log(result1 + result2 + result3);
+  }
+
+  add();
+
+
+
+</script>
+</body>
+</html>

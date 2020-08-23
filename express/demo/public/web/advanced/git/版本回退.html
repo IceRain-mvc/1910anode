@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>版本回退 | 冰雨的个人博客</title>
+    <meta name="description" content="宝哥带你上王者">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/Webpack.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.5b14f93b.css" as="style"><link rel="preload" href="/assets/js/app.7b35532a.js" as="script"><link rel="preload" href="/assets/js/2.bb0b31a9.js" as="script"><link rel="preload" href="/assets/js/65.a0b5f8af.js" as="script"><link rel="prefetch" href="/assets/js/10.6ffa5b08.js"><link rel="prefetch" href="/assets/js/11.3d45ce76.js"><link rel="prefetch" href="/assets/js/12.82434d2f.js"><link rel="prefetch" href="/assets/js/13.20b5834a.js"><link rel="prefetch" href="/assets/js/14.6acc4619.js"><link rel="prefetch" href="/assets/js/15.24ec88ee.js"><link rel="prefetch" href="/assets/js/16.07474eb6.js"><link rel="prefetch" href="/assets/js/17.454c466b.js"><link rel="prefetch" href="/assets/js/18.7a4df9ed.js"><link rel="prefetch" href="/assets/js/19.f6e02e6a.js"><link rel="prefetch" href="/assets/js/20.9e3ffac8.js"><link rel="prefetch" href="/assets/js/21.7de02677.js"><link rel="prefetch" href="/assets/js/22.7cce5182.js"><link rel="prefetch" href="/assets/js/23.00216395.js"><link rel="prefetch" href="/assets/js/24.a22e3c13.js"><link rel="prefetch" href="/assets/js/25.60da070f.js"><link rel="prefetch" href="/assets/js/26.54bce5f0.js"><link rel="prefetch" href="/assets/js/27.ed66f3bc.js"><link rel="prefetch" href="/assets/js/28.4ed8d082.js"><link rel="prefetch" href="/assets/js/29.03851bd6.js"><link rel="prefetch" href="/assets/js/3.80497d93.js"><link rel="prefetch" href="/assets/js/30.5c64322a.js"><link rel="prefetch" href="/assets/js/31.e9700d52.js"><link rel="prefetch" href="/assets/js/32.1cf50bfb.js"><link rel="prefetch" href="/assets/js/33.c72e4631.js"><link rel="prefetch" href="/assets/js/34.eb19460b.js"><link rel="prefetch" href="/assets/js/35.ea755e67.js"><link rel="prefetch" href="/assets/js/36.5811efa0.js"><link rel="prefetch" href="/assets/js/37.2fabbe98.js"><link rel="prefetch" href="/assets/js/38.78ef4b98.js"><link rel="prefetch" href="/assets/js/39.18c3460c.js"><link rel="prefetch" href="/assets/js/4.cd6abf10.js"><link rel="prefetch" href="/assets/js/40.f36f5a12.js"><link rel="prefetch" href="/assets/js/41.a36ee788.js"><link rel="prefetch" href="/assets/js/42.a7eb05be.js"><link rel="prefetch" href="/assets/js/43.59958219.js"><link rel="prefetch" href="/assets/js/44.6cd1083d.js"><link rel="prefetch" href="/assets/js/45.2a2045da.js"><link rel="prefetch" href="/assets/js/46.f217e4e8.js"><link rel="prefetch" href="/assets/js/47.c976443f.js"><link rel="prefetch" href="/assets/js/48.9f79bfaa.js"><link rel="prefetch" href="/assets/js/49.d78c3335.js"><link rel="prefetch" href="/assets/js/5.e0a57f13.js"><link rel="prefetch" href="/assets/js/50.23fe9ab2.js"><link rel="prefetch" href="/assets/js/51.ef572dd8.js"><link rel="prefetch" href="/assets/js/52.6c62ff52.js"><link rel="prefetch" href="/assets/js/53.ff1608d2.js"><link rel="prefetch" href="/assets/js/54.95a2d7f1.js"><link rel="prefetch" href="/assets/js/55.6ea68f79.js"><link rel="prefetch" href="/assets/js/56.fe0a887c.js"><link rel="prefetch" href="/assets/js/57.19f65329.js"><link rel="prefetch" href="/assets/js/58.903aba0e.js"><link rel="prefetch" href="/assets/js/59.3293f36c.js"><link rel="prefetch" href="/assets/js/6.4e2fc747.js"><link rel="prefetch" href="/assets/js/60.0a51a3f3.js"><link rel="prefetch" href="/assets/js/61.fafed8ff.js"><link rel="prefetch" href="/assets/js/62.434df506.js"><link rel="prefetch" href="/assets/js/63.8d23d3f5.js"><link rel="prefetch" href="/assets/js/64.b9199119.js"><link rel="prefetch" href="/assets/js/66.ef99503a.js"><link rel="prefetch" href="/assets/js/67.40694a28.js"><link rel="prefetch" href="/assets/js/68.1c3664fb.js"><link rel="prefetch" href="/assets/js/69.4b116e57.js"><link rel="prefetch" href="/assets/js/7.bd40b967.js"><link rel="prefetch" href="/assets/js/70.2d7b4e69.js"><link rel="prefetch" href="/assets/js/71.31cc5d84.js"><link rel="prefetch" href="/assets/js/72.376ad0f1.js"><link rel="prefetch" href="/assets/js/73.096674e4.js"><link rel="prefetch" href="/assets/js/74.194292ed.js"><link rel="prefetch" href="/assets/js/75.fc469464.js"><link rel="prefetch" href="/assets/js/8.af14a011.js"><link rel="prefetch" href="/assets/js/9.a07b69f9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5b14f93b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">冰雨的个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web基础" class="dropdown-title"><span class="title">web基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/base/webpack/" class="nav-link">
+  html+css
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-pre/" class="nav-link">
+  js上
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-next/" class="nav-link">
+  js下
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/model/" class="nav-link">
+  模块化开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mobile/" class="nav-link">
+  移动端开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/node-base/" class="nav-link">
+  node基础
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mini-project/" class="nav-link">
+  微信小程序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web进阶" class="dropdown-title"><span class="title">web进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/advanced/webpack/" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/vue/" class="nav-link">
+  Vue进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/react/" class="nav-link">
+  React进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/js/" class="nav-link">
+  Js进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/architecture/" class="nav-link">
+  架构进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/protocol/" class="nav-link">
+  网络协议
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/git/" class="nav-link router-link-active">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/Interview/" class="nav-link">
+  面试题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="python" class="dropdown-title"><span class="title">python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  python基础
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  python进阶
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  python爬虫
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  python数据分析
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  人工智能初步
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="C端开发" class="dropdown-title"><span class="title">C端开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  android
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  react-native
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  weex
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  ios
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java基础" class="dropdown-title"><span class="title">java基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base1/1/" class="nav-link">
+  初识java
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/2/" class="nav-link">
+  变量
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/3/" class="nav-link">
+  控制语句
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/4/" class="nav-link">
+  循环
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/5/" class="nav-link">
+  数组
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/6/" class="nav-link">
+  面向对象上
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/7/" class="nav-link">
+  面向对象下
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/8/" class="nav-link">
+  继承&amp;封装
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/9/" class="nav-link">
+  重写&amp;多态
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/10/" class="nav-link">
+  抽象类和接口
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/11/" class="nav-link">
+  异常
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base2/1/" class="nav-link">
+  集合
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/2/" class="nav-link">
+  枚举&amp;工具类
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/3/" class="nav-link">
+  文件&amp;流&amp;序列化
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/4/" class="nav-link">
+  线程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/5/" class="nav-link">
+  网络编程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/6/" class="nav-link">
+  xml
+</a></li></ul></li><li class="dropdown-item"><h4>
+          mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base3/1/" class="nav-link">
+  初始mysql
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/2/" class="nav-link">
+  数据库设计
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/3/" class="nav-link">
+  数据库操作
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java_web
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base4/1/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/2/" class="nav-link">
+  HTML与CSS_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/3/" class="nav-link">
+  初识js
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/4/" class="nav-link">
+  DOM操作第二集
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/5/" class="nav-link">
+  事件&amp;bom&amp;常用函数
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/6/" class="nav-link">
+  jquery_1
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/7/" class="nav-link">
+  jquery_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/8/" class="nav-link">
+  运动框架
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java高级" class="dropdown-title"><span class="title">java高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Spring MVC
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  Spring boot
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  Spring cloud
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  spark
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  storm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="linux" class="dropdown-title"><span class="title">linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/linux/system-1/" class="nav-link">
+  操作系统（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/system-2/" class="nav-link">
+  操作系统的发展史（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/Ubuntu-view/" class="nav-link">
+  Ubuntu 图形界面入门
+</a></li><li class="dropdown-item"><!----> <a href="/linux/file/" class="nav-link">
+  文件和目录（理解）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-1/" class="nav-link">
+  常用 Linux 命令的基本使用
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-2/" class="nav-link">
+  Linux 终端命令格式
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-3/" class="nav-link">
+  文件和目录常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-4/" class="nav-link">
+  其他命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-5/" class="nav-link">
+  用户权限相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-6/" class="nav-link">
+  系统信息相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-7/" class="nav-link">
+  远程管理常用命令
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web基础" class="dropdown-title"><span class="title">web基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/base/webpack/" class="nav-link">
+  html+css
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-pre/" class="nav-link">
+  js上
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-next/" class="nav-link">
+  js下
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/model/" class="nav-link">
+  模块化开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mobile/" class="nav-link">
+  移动端开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/node-base/" class="nav-link">
+  node基础
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mini-project/" class="nav-link">
+  微信小程序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web进阶" class="dropdown-title"><span class="title">web进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/advanced/webpack/" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/vue/" class="nav-link">
+  Vue进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/react/" class="nav-link">
+  React进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/js/" class="nav-link">
+  Js进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/architecture/" class="nav-link">
+  架构进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/protocol/" class="nav-link">
+  网络协议
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/git/" class="nav-link router-link-active">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/Interview/" class="nav-link">
+  面试题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="python" class="dropdown-title"><span class="title">python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  python基础
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  python进阶
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  python爬虫
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  python数据分析
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  人工智能初步
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="C端开发" class="dropdown-title"><span class="title">C端开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  android
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  react-native
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  weex
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  ios
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java基础" class="dropdown-title"><span class="title">java基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base1/1/" class="nav-link">
+  初识java
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/2/" class="nav-link">
+  变量
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/3/" class="nav-link">
+  控制语句
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/4/" class="nav-link">
+  循环
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/5/" class="nav-link">
+  数组
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/6/" class="nav-link">
+  面向对象上
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/7/" class="nav-link">
+  面向对象下
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/8/" class="nav-link">
+  继承&amp;封装
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/9/" class="nav-link">
+  重写&amp;多态
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/10/" class="nav-link">
+  抽象类和接口
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/11/" class="nav-link">
+  异常
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base2/1/" class="nav-link">
+  集合
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/2/" class="nav-link">
+  枚举&amp;工具类
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/3/" class="nav-link">
+  文件&amp;流&amp;序列化
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/4/" class="nav-link">
+  线程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/5/" class="nav-link">
+  网络编程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/6/" class="nav-link">
+  xml
+</a></li></ul></li><li class="dropdown-item"><h4>
+          mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base3/1/" class="nav-link">
+  初始mysql
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/2/" class="nav-link">
+  数据库设计
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/3/" class="nav-link">
+  数据库操作
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java_web
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base4/1/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/2/" class="nav-link">
+  HTML与CSS_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/3/" class="nav-link">
+  初识js
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/4/" class="nav-link">
+  DOM操作第二集
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/5/" class="nav-link">
+  事件&amp;bom&amp;常用函数
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/6/" class="nav-link">
+  jquery_1
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/7/" class="nav-link">
+  jquery_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/8/" class="nav-link">
+  运动框架
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java高级" class="dropdown-title"><span class="title">java高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Spring MVC
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  Spring boot
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  Spring cloud
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  spark
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  storm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="linux" class="dropdown-title"><span class="title">linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/linux/system-1/" class="nav-link">
+  操作系统（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/system-2/" class="nav-link">
+  操作系统的发展史（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/Ubuntu-view/" class="nav-link">
+  Ubuntu 图形界面入门
+</a></li><li class="dropdown-item"><!----> <a href="/linux/file/" class="nav-link">
+  文件和目录（理解）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-1/" class="nav-link">
+  常用 Linux 命令的基本使用
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-2/" class="nav-link">
+  Linux 终端命令格式
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-3/" class="nav-link">
+  文件和目录常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-4/" class="nav-link">
+  其他命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-5/" class="nav-link">
+  用户权限相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-6/" class="nav-link">
+  系统信息相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-7/" class="nav-link">
+  远程管理常用命令
+</a></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>git</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/web/advanced/git/" class="sidebar-link">git简介与安装</a></li><li><a href="/web/advanced/git/创建版本库.html" class="sidebar-link">创建版本库</a></li><li><a href="/web/advanced/git/版本回退.html" class="active sidebar-link">版本回退</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/web/advanced/git/工作区和缓存区.html" class="sidebar-link">工作区和暂存区</a></li><li><a href="/web/advanced/git/管理修改.html" class="sidebar-link">管理修改</a></li><li><a href="/web/advanced/git/撤销修改.html" class="sidebar-link">撤销修改</a></li><li><a href="/web/advanced/git/删除文件.html" class="sidebar-link">删除文件</a></li><li><a href="/web/advanced/git/添加远程仓库.html" class="sidebar-link">添加远程库</a></li><li><a href="/web/advanced/git/从远程仓库克隆.html" class="sidebar-link">从远程库克隆</a></li><li><a href="/web/advanced/git/创建分支与合并分支.html" class="sidebar-link">创建与合并分支</a></li><li><a href="/web/advanced/git/解决冲突.html" class="sidebar-link">解决冲突</a></li><li><a href="/web/advanced/git/分支策略管理.html" class="sidebar-link">分支管理策略</a></li><li><a href="/web/advanced/git/bug分支.html" class="sidebar-link">Bug分支</a></li><li><a href="/web/advanced/git/feature分支.html" class="sidebar-link">Feature分支</a></li><li><a href="/web/advanced/git/多人协作.html" class="sidebar-link">多人协作</a></li><li><a href="/web/advanced/git/rebase.html" class="sidebar-link">Rebase</a></li><li><a href="/web/advanced/git/创建标签.html" class="sidebar-link">创建标签</a></li><li><a href="/web/advanced/git/操作标签.html" class="sidebar-link">操作标签</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h4 id="版本回退"><a href="#版本回退" class="header-anchor">#</a> 版本回退</h4> <hr> <p>现在，你已经学会了修改文件，然后把修改提交到Git版本库，现在，再练习一次，修改readme.txt文件如下：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Git is a distributed version control system.
+Git is free software distributed under the GPL.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>然后尝试提交：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ git add readme.txt
+$ git commit -m &quot;append GPL&quot;
+[master 1094adb] append GPL
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>像这样，你不断对文件进行修改，然后不断提交修改到版本库里，就好比玩RPG游戏时，每通过一关就会自动把游戏状态存盘，如果某一关没过去，你还可以选择读取前一关的状态。有些时候，在打Boss之前，你会手动存盘，以便万一打Boss失败了，可以从最近的地方重新开始。Git也是一样，每当你觉得文件修改到一定程度的时候，就可以“保存一个快照”，这个快照在Git中被称为<code>commit</code>。一旦你把文件改乱了，或者误删了文件，还可以从最近的一个<code>commit</code>恢复，然后继续工作，而不是把几个月的工作成果全部丢失。</p> <p>现在，我们回顾一下<code>readme.txt</code>文件一共有几个版本被提交到Git仓库里了：</p> <p>版本1：wrote a readme file</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Git is a version control system.
+Git is free software.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>版本2：add distributed</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Git is a distributed version control system.
+Git is free software.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>版本3：append GPL</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>Git is a distributed version control system.
+Git is free software distributed under the GPL.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>当然了，在实际工作中，我们脑子里怎么可能记得一个几千行的文件每次都改了什么内容，不然要版本控制系统干什么。版本控制系统肯定有某个命令可以告诉我们历史记录，在Git中，我们用<code>git log</code>命令查看：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ git log
+commit 1094adb7b9b3807259d8cb349e7df1d4d6477073 (HEAD -&gt; master)
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt;
+Date:   Fri May 18 21:06:15 2018 +0800
+
+    append GPL
+
+commit e475afc93c209a690c39c13a46716e8fa000c366
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt;
+Date:   Fri May 18 21:03:36 2018 +0800
+
+    add distributed
+
+commit eaadf4e385e865d25c48e7ca9c8395c3f7dfaef0
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt;
+Date:   Fri May 18 20:59:18 2018 +0800
+
+    wrote a readme file
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br></div></div><p><code>git log</code>命令显示从最近到最远的提交日志，我们可以看到3次提交，最近的一次是<code>append GPL</code>，上一次是<code>add distributed</code>，最早的一次是<code>wrote a readme file</code>。</p> <p>如果嫌输出信息太多，看得眼花缭乱的，可以试试加上<code>--pretty=oneline</code>参数：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ git log --pretty=oneline
+1094adb7b9b3807259d8cb349e7df1d4d6477073 (HEAD -&gt; master) append GPL
+e475afc93c209a690c39c13a46716e8fa000c366 add distributed
+eaadf4e385e865d25c48e7ca9c8395c3f7dfaef0 wrote a readme file
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>需要友情提示的是，你看到的一大串类似<code>1094adb...</code>的是<code>commit id</code>（版本号），和SVN不一样，Git的<code>commit id</code>不是1，2，3……递增的数字，而是一个SHA1计算出来的一个非常大的数字，用十六进制表示，而且你看到的<code>commit id</code>和我的肯定不一样，以你自己的为准。为什么<code>commit id</code>需要用这么一大串数字表示呢？因为Git是分布式的版本控制系统，后面我们还要研究多人在同一个版本库里工作，如果大家都用1，2，3……作为版本号，那肯定就冲突了。</p> <p>每提交一个新版本，实际上Git就会把它们自动串成一条时间线。如果使用可视化工具查看Git历史，就可以更清楚地看到提交历史的时间线：</p> <p><img src="https://www.liaoxuefeng.com/files/attachments/919019707114272/0" alt="git-log-timeline"></p> <p>好了，现在我们启动时光穿梭机，准备把<code>readme.txt</code>回退到上一个版本，也就是<code>add distributed</code>的那个版本，怎么做呢？</p> <p>首先，Git必须知道当前版本是哪个版本，在Git中，用<code>HEAD</code>表示当前版本，也就是最新的提交<code>1094adb...</code>（注意我的提交ID和你的肯定不一样），上一个版本就是<code>HEAD^</code>，上上一个版本就是<code>HEAD^^</code>，当然往上100个版本写100个<code>^</code>比较容易数不过来，所以写成<code>HEAD~100</code>。</p> <p>现在，我们要把当前版本<code>append GPL</code>回退到上一个版本<code>add distributed</code>，就可以使用<code>git reset</code>命令：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ git reset --hard HEAD^
+HEAD is now at e475afc add distributed
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p><code>--hard</code>参数有啥意义？这个后面再讲，现在你先放心使用。</p> <p>看看<code>readme.txt</code>的内容是不是版本<code>add distributed</code>：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ cat readme.txt
+Git is a distributed version control system.
+Git is free software.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>果然被还原了。</p> <p>还可以继续回退到上一个版本<code>wrote a readme file</code>，不过且慢，然我们用<code>git log</code>再看看现在版本库的状态：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ git log
+commit e475afc93c209a690c39c13a46716e8fa000c366 (HEAD -&gt; master)
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt;
+Date:   Fri May 18 21:03:36 2018 +0800
+
+    add distributed
+
+commit eaadf4e385e865d25c48e7ca9c8395c3f7dfaef0
+Author: Michael Liao &lt;askxuefeng@gmail.com&gt;
+Date:   Fri May 18 20:59:18 2018 +0800
+
+    wrote a readme file
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div><p>最新的那个版本<code>append GPL</code>已经看不到了！好比你从21世纪坐时光穿梭机来到了19世纪，想再回去已经回不去了，肿么办？</p> <p>办法其实还是有的，只要上面的命令行窗口还没有被关掉，你就可以顺着往上找啊找啊，找到那个<code>append GPL</code>的<code>commit id</code>是<code>1094adb...</code>，于是就可以指定回到未来的某个版本：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ git reset --hard 1094a
+HEAD is now at 83b0afe append GPL
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><p>版本号没必要写全，前几位就可以了，Git会自动去找。当然也不能只写前一两位，因为Git可能会找到多个版本号，就无法确定是哪一个了。</p> <p>再小心翼翼地看看<code>readme.txt</code>的内容：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ cat readme.txt
+Git is a distributed version control system.
+Git is free software distributed under the GPL.
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br></div></div><p>果然，我胡汉三又回来了。</p> <p>Git的版本回退速度非常快，因为Git在内部有个指向当前版本的<code>HEAD</code>指针，当你回退版本的时候，Git仅仅是把HEAD从指向<code>append GPL</code>：</p> <div class="language-ascii line-numbers-mode"><pre class="language-text"><code>┌────┐
+│HEAD│
+└────┘
+   │
+   └──&gt; ○ append GPL
+        │
+        ○ add distributed
+        │
+        ○ wrote a readme file
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>改为指向<code>add distributed</code>：</p> <div class="language-ascii line-numbers-mode"><pre class="language-text"><code>┌────┐
+│HEAD│
+└────┘
+   │
+   │    ○ append GPL
+   │    │
+   └──&gt; ○ add distributed
+        │
+        ○ wrote a readme file
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><p>然后顺便把工作区的文件更新了。所以你让<code>HEAD</code>指向哪个版本号，你就把当前版本定位在哪。</p> <p>现在，你回退到了某个版本，关掉了电脑，第二天早上就后悔了，想恢复到新版本怎么办？找不到新版本的<code>commit id</code>怎么办？</p> <p>在Git中，总是有后悔药可以吃的。当你用<code>$ git reset --hard HEAD^</code>回退到<code>add distributed</code>版本时，再想恢复到<code>append GPL</code>，就必须找到<code>append GPL</code>的commit id。Git提供了一个命令<code>git reflog</code>用来记录你的每一次命令：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>$ git reflog
+e475afc HEAD@{1}: reset: moving to HEAD^
+1094adb (HEAD -&gt; master) HEAD@{2}: commit: append GPL
+e475afc HEAD@{3}: commit: add distributed
+eaadf4e HEAD@{4}: commit (initial): wrote a readme file
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>终于舒了口气，从输出可知，<code>append GPL</code>的commit id是<code>1094adb</code>，现在，你又可以乘坐时光机回到未来了。</p> <h3 id="小结"><a href="#小结" class="header-anchor">#</a> 小结</h3> <p>现在总结一下：</p> <ul><li><code>HEAD</code>指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。</li> <li>穿梭前，用<code>git log</code>可以查看提交历史，以便确定要回退到哪个版本。</li> <li>要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/web/advanced/git/创建版本库.html" class="prev">
+        创建版本库
+      </a></span> <span class="next"><a href="/web/advanced/git/工作区和缓存区.html">
+        工作区和暂存区
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.7b35532a.js" defer></script><script src="/assets/js/2.bb0b31a9.js" defer></script><script src="/assets/js/65.a0b5f8af.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="./css/animation.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;
+    }
+
+    #box div {
+      background-color: pink;
+      margin: 10px;
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+    }
+
+  </style>
+</head>
+<body>
+<div id="box">
+
+</div>
+
+<script>
+  /*
+  * 创建元素 [{},{},{}]
+  * 有多少个元素 创建多少个
+  * 执行动画 一个一个执行
+  * */
+
+  class Animation {
+    constructor(parent, arr) {
+      this.parent = document.querySelector(parent);
+      this.arr = arr;
+      //节点创建出来
+      this.domArr = this.render();//map 返回的是数组
+      // console.log(this.domArr);
+      this.start();//一个一个执行动画
+    }
+
+    render() {
+      //返回的每一个都应该是一个dom对象
+      return this.arr.map(item => {
+        let div = document.createElement('div');
+        div.className = 'animated';
+        div.classList.add(item.className);
+
+        //什么时候添加到节点上
+        //this.parent.appendChild(div);  promise中去写
+        return div
+      })
+    }
+
+    /*
+    * 这个函数返回promise
+    * */
+
+    move(div) {
+      return new Promise(resolve => {
+        this.parent.appendChild(div);
+        //动画结束之后 再调用 resolve
+        div.addEventListener('animationend', () => {// 事件
+          resolve();
+        });
+      });
+    }
+
+    async start() {
+      // this.domArr
+      // this.move(this.domArr[0])
+      //   .then(res => this.move(this.domArr[1]))
+      //   .then(res => this.move(this.domArr[2]))
+
+      //如果用async 和 await 怎么做
+
+      // await this.move(this.domArr[0]);
+      // await this.move(this.domArr[1]);
+      // await this.move(this.domArr[2]);
+
+      // for (let i = 0; i < this.domArr.length; i++) {
+      //   await this.move(this.domArr[i]);
+      // }
+
+      for (let val of this.domArr) {
+        await this.move(val);
+      }
+    }
+
+  }
+
+  /*
+  * class="animated bounceInDown"
+class="animated bounceInLeft"
+class="animated flip"
+  * */
+  new Animation('#box', [
+    {title: '动画1', className: 'bounceInDown'},
+    {title: '动画2', className: 'bounceInLeft'},
+    {title: '动画3', className: 'flip'},
+  ])
+
+
+</script>
+</body>
+</html>

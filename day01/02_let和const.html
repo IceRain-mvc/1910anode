@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  /*
+  * let 和 const : es6新增的语法
+  *
+  * 1: 不存在变量提升 : 声明之前不能调用的
+  * 2: 不允许重复声明的 如果重复声明 : Identifier 'a' has already been declared
+  * 3: 暂时性死区 : 只要遇到{} 当前{}里面有let 后面的变量 指代就是 {}里面的变量
+  *
+  * 注意: let 只能在当前作用域里面生效
+  *
+  * let 在 遇到 小括号时 会把小括号连同大括号变成同一个作用域 小括号作用域是大括号作用域的父级
+  *
+  * */
+
+  // console.log(a);
+  //
+  // let a = 10;
+
+
+  /*
+  *
+  * */
+
+  let a = 12;
+  // let a = 12;
+
+ /* function add() {
+    /!*
+    * 为什么不会冲突 : let 遇到{} 都会在里面生成一个作用域 作用域之间是不会冲突的
+    * *!/
+    let a = 23;
+    console.log(a);
+  }
+
+  if (true) {
+    a = 10; // Cannot access 'a' before initialization
+    // let a = 45; // 暂时性死区
+    // let b = 30;
+  }
+
+  add();
+  console.log(a);*/
+
+
+ /* for (let i = 0; i < 10; i++) {
+    let i = 'abcdefg';
+    console.log(i);
+  }*/
+
+  /*
+  *
+  * let a = 10
+  * function add(){
+  *   console.log(a)
+  *
+  *   let a = 20
+  * }
+  *
+  *
+  * */
+  // console.log(i);// i is not defined
+
+
+  /*
+  * 变量 常量
+  * var 不能 声明常量
+  * const: 声明常量
+  * */
+
+  // var ABC = Math.PI;
+  // ABC = 3.15;
+  // console.log(ABC);
+
+
+  // const PI = Math.PI;
+  // 如果重新赋值
+  //   基本类型 : 报错
+  //   引用    : 直接赋值 会报错  操作原来的数据 就不会报错
+  // PI = 3.15;
+
+ /* const arr = [2, 3, 4];
+  // arr = [2, 3];
+  arr.push(5);
+  arr.splice(0, 1);
+  console.log(arr);
+
+  */
+
+ // Date 是什么
+  // var 1: 没有块级作用  只有全局作用域  函数作用域
+  //     2: 变量提升
+  //       锁死 当前作用域
+  // let for  if {}
+
+  /*var tmp = new Date();
+
+  function f() {
+    console.log(tmp);
+    if (false) {
+      var tmp = 'hello world';
+    }
+  }
+  f();
+
+  */
+
+  function f1() {
+    let n = 5;
+    if (true) {
+      let n = 10;
+    }
+    console.log(n);
+
+  }
+
+  f1();
+
+</script>
+</body>
+</html>

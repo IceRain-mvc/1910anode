@@ -1,0 +1,25 @@
+
+9点
+
+回顾:
+  express  6
+
+  express
+  app = express()
+    app.use(express.static(path.join(__dirname,'./public')))
+    app.use(express.json())//处理json数据  JSON.parse
+    app.use(express.urlencoded())//用来处理form表单的请求  ?name=123&aaa=123 ==> {name:123}
+
+  app.get('/',()=>{})
+  app.post('/',()=>{})
+
+  /get?pageSize=10  返回的数据是10条
+  /post  {userName,password}
+
+
+
+
+
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  /*
+  * es6中 构造函数和 类分开
+  *
+  * class 声明类的关键字
+  * 构造函数 : 应该是一个函数
+  * */
+
+  //Person 是类
+  //constructor 是构造函数
+  class Person {
+    /*可以设置默认值*/
+    constructor(name='张三', age) {
+      //属性声明在构造函数中
+      this.name = name;
+      this.age = age;
+    }
+
+    sayName() {
+      console.log(this.name);
+    }
+  }
+
+  //Person extends Function
+  //Function extends Object
+
+  let person = new Person(undefined, 20);
+  //1:对象是可以调用父级方法的
+  console.log(person.toString());
+  //2:对象和类是什么关系 person.__proto__ === Person.prototype
+  Person.prototype.getPerson = () => {
+    console.log('person')
+  };
+  person.getPerson();
+  person.sayName();
+  // console.log(person);
+
+  /*
+  * 类和对象的关系
+  * */
+
+
+
+
+</script>
+</body>
+</html>

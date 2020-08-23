@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>[架构图以及vue的简介] | 冰雨的个人博客</title>
+    <meta name="description" content="宝哥带你上王者">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/Webpack.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.5b14f93b.css" as="style"><link rel="preload" href="/assets/js/app.7b35532a.js" as="script"><link rel="preload" href="/assets/js/2.bb0b31a9.js" as="script"><link rel="preload" href="/assets/js/49.d78c3335.js" as="script"><link rel="prefetch" href="/assets/js/10.6ffa5b08.js"><link rel="prefetch" href="/assets/js/11.3d45ce76.js"><link rel="prefetch" href="/assets/js/12.82434d2f.js"><link rel="prefetch" href="/assets/js/13.20b5834a.js"><link rel="prefetch" href="/assets/js/14.6acc4619.js"><link rel="prefetch" href="/assets/js/15.24ec88ee.js"><link rel="prefetch" href="/assets/js/16.07474eb6.js"><link rel="prefetch" href="/assets/js/17.454c466b.js"><link rel="prefetch" href="/assets/js/18.7a4df9ed.js"><link rel="prefetch" href="/assets/js/19.f6e02e6a.js"><link rel="prefetch" href="/assets/js/20.9e3ffac8.js"><link rel="prefetch" href="/assets/js/21.7de02677.js"><link rel="prefetch" href="/assets/js/22.7cce5182.js"><link rel="prefetch" href="/assets/js/23.00216395.js"><link rel="prefetch" href="/assets/js/24.a22e3c13.js"><link rel="prefetch" href="/assets/js/25.60da070f.js"><link rel="prefetch" href="/assets/js/26.54bce5f0.js"><link rel="prefetch" href="/assets/js/27.ed66f3bc.js"><link rel="prefetch" href="/assets/js/28.4ed8d082.js"><link rel="prefetch" href="/assets/js/29.03851bd6.js"><link rel="prefetch" href="/assets/js/3.80497d93.js"><link rel="prefetch" href="/assets/js/30.5c64322a.js"><link rel="prefetch" href="/assets/js/31.e9700d52.js"><link rel="prefetch" href="/assets/js/32.1cf50bfb.js"><link rel="prefetch" href="/assets/js/33.c72e4631.js"><link rel="prefetch" href="/assets/js/34.eb19460b.js"><link rel="prefetch" href="/assets/js/35.ea755e67.js"><link rel="prefetch" href="/assets/js/36.5811efa0.js"><link rel="prefetch" href="/assets/js/37.2fabbe98.js"><link rel="prefetch" href="/assets/js/38.78ef4b98.js"><link rel="prefetch" href="/assets/js/39.18c3460c.js"><link rel="prefetch" href="/assets/js/4.cd6abf10.js"><link rel="prefetch" href="/assets/js/40.f36f5a12.js"><link rel="prefetch" href="/assets/js/41.a36ee788.js"><link rel="prefetch" href="/assets/js/42.a7eb05be.js"><link rel="prefetch" href="/assets/js/43.59958219.js"><link rel="prefetch" href="/assets/js/44.6cd1083d.js"><link rel="prefetch" href="/assets/js/45.2a2045da.js"><link rel="prefetch" href="/assets/js/46.f217e4e8.js"><link rel="prefetch" href="/assets/js/47.c976443f.js"><link rel="prefetch" href="/assets/js/48.9f79bfaa.js"><link rel="prefetch" href="/assets/js/5.e0a57f13.js"><link rel="prefetch" href="/assets/js/50.23fe9ab2.js"><link rel="prefetch" href="/assets/js/51.ef572dd8.js"><link rel="prefetch" href="/assets/js/52.6c62ff52.js"><link rel="prefetch" href="/assets/js/53.ff1608d2.js"><link rel="prefetch" href="/assets/js/54.95a2d7f1.js"><link rel="prefetch" href="/assets/js/55.6ea68f79.js"><link rel="prefetch" href="/assets/js/56.fe0a887c.js"><link rel="prefetch" href="/assets/js/57.19f65329.js"><link rel="prefetch" href="/assets/js/58.903aba0e.js"><link rel="prefetch" href="/assets/js/59.3293f36c.js"><link rel="prefetch" href="/assets/js/6.4e2fc747.js"><link rel="prefetch" href="/assets/js/60.0a51a3f3.js"><link rel="prefetch" href="/assets/js/61.fafed8ff.js"><link rel="prefetch" href="/assets/js/62.434df506.js"><link rel="prefetch" href="/assets/js/63.8d23d3f5.js"><link rel="prefetch" href="/assets/js/64.b9199119.js"><link rel="prefetch" href="/assets/js/65.a0b5f8af.js"><link rel="prefetch" href="/assets/js/66.ef99503a.js"><link rel="prefetch" href="/assets/js/67.40694a28.js"><link rel="prefetch" href="/assets/js/68.1c3664fb.js"><link rel="prefetch" href="/assets/js/69.4b116e57.js"><link rel="prefetch" href="/assets/js/7.bd40b967.js"><link rel="prefetch" href="/assets/js/70.2d7b4e69.js"><link rel="prefetch" href="/assets/js/71.31cc5d84.js"><link rel="prefetch" href="/assets/js/72.376ad0f1.js"><link rel="prefetch" href="/assets/js/73.096674e4.js"><link rel="prefetch" href="/assets/js/74.194292ed.js"><link rel="prefetch" href="/assets/js/75.fc469464.js"><link rel="prefetch" href="/assets/js/8.af14a011.js"><link rel="prefetch" href="/assets/js/9.a07b69f9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5b14f93b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">冰雨的个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web基础" class="dropdown-title"><span class="title">web基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/base/webpack/" class="nav-link">
+  html+css
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-pre/" class="nav-link">
+  js上
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-next/" class="nav-link">
+  js下
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/model/" class="nav-link">
+  模块化开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mobile/" class="nav-link">
+  移动端开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/node-base/" class="nav-link">
+  node基础
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mini-project/" class="nav-link">
+  微信小程序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web进阶" class="dropdown-title"><span class="title">web进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/advanced/webpack/" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/vue/" class="nav-link">
+  Vue进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/react/" class="nav-link">
+  React进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/js/" class="nav-link">
+  Js进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/architecture/" class="nav-link router-link-exact-active router-link-active">
+  架构进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/protocol/" class="nav-link">
+  网络协议
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/git/" class="nav-link">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/Interview/" class="nav-link">
+  面试题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="python" class="dropdown-title"><span class="title">python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  python基础
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  python进阶
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  python爬虫
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  python数据分析
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  人工智能初步
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="C端开发" class="dropdown-title"><span class="title">C端开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  android
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  react-native
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  weex
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  ios
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java基础" class="dropdown-title"><span class="title">java基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base1/1/" class="nav-link">
+  初识java
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/2/" class="nav-link">
+  变量
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/3/" class="nav-link">
+  控制语句
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/4/" class="nav-link">
+  循环
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/5/" class="nav-link">
+  数组
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/6/" class="nav-link">
+  面向对象上
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/7/" class="nav-link">
+  面向对象下
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/8/" class="nav-link">
+  继承&amp;封装
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/9/" class="nav-link">
+  重写&amp;多态
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/10/" class="nav-link">
+  抽象类和接口
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/11/" class="nav-link">
+  异常
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base2/1/" class="nav-link">
+  集合
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/2/" class="nav-link">
+  枚举&amp;工具类
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/3/" class="nav-link">
+  文件&amp;流&amp;序列化
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/4/" class="nav-link">
+  线程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/5/" class="nav-link">
+  网络编程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/6/" class="nav-link">
+  xml
+</a></li></ul></li><li class="dropdown-item"><h4>
+          mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base3/1/" class="nav-link">
+  初始mysql
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/2/" class="nav-link">
+  数据库设计
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/3/" class="nav-link">
+  数据库操作
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java_web
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base4/1/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/2/" class="nav-link">
+  HTML与CSS_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/3/" class="nav-link">
+  初识js
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/4/" class="nav-link">
+  DOM操作第二集
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/5/" class="nav-link">
+  事件&amp;bom&amp;常用函数
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/6/" class="nav-link">
+  jquery_1
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/7/" class="nav-link">
+  jquery_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/8/" class="nav-link">
+  运动框架
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java高级" class="dropdown-title"><span class="title">java高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Spring MVC
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  Spring boot
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  Spring cloud
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  spark
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  storm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="linux" class="dropdown-title"><span class="title">linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/linux/system-1/" class="nav-link">
+  操作系统（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/system-2/" class="nav-link">
+  操作系统的发展史（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/Ubuntu-view/" class="nav-link">
+  Ubuntu 图形界面入门
+</a></li><li class="dropdown-item"><!----> <a href="/linux/file/" class="nav-link">
+  文件和目录（理解）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-1/" class="nav-link">
+  常用 Linux 命令的基本使用
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-2/" class="nav-link">
+  Linux 终端命令格式
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-3/" class="nav-link">
+  文件和目录常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-4/" class="nav-link">
+  其他命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-5/" class="nav-link">
+  用户权限相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-6/" class="nav-link">
+  系统信息相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-7/" class="nav-link">
+  远程管理常用命令
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web基础" class="dropdown-title"><span class="title">web基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/base/webpack/" class="nav-link">
+  html+css
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-pre/" class="nav-link">
+  js上
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-next/" class="nav-link">
+  js下
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/model/" class="nav-link">
+  模块化开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mobile/" class="nav-link">
+  移动端开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/node-base/" class="nav-link">
+  node基础
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mini-project/" class="nav-link">
+  微信小程序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web进阶" class="dropdown-title"><span class="title">web进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/advanced/webpack/" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/vue/" class="nav-link">
+  Vue进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/react/" class="nav-link">
+  React进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/js/" class="nav-link">
+  Js进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/architecture/" class="nav-link router-link-exact-active router-link-active">
+  架构进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/protocol/" class="nav-link">
+  网络协议
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/git/" class="nav-link">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/Interview/" class="nav-link">
+  面试题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="python" class="dropdown-title"><span class="title">python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  python基础
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  python进阶
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  python爬虫
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  python数据分析
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  人工智能初步
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="C端开发" class="dropdown-title"><span class="title">C端开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  android
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  react-native
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  weex
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  ios
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java基础" class="dropdown-title"><span class="title">java基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base1/1/" class="nav-link">
+  初识java
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/2/" class="nav-link">
+  变量
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/3/" class="nav-link">
+  控制语句
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/4/" class="nav-link">
+  循环
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/5/" class="nav-link">
+  数组
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/6/" class="nav-link">
+  面向对象上
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/7/" class="nav-link">
+  面向对象下
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/8/" class="nav-link">
+  继承&amp;封装
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/9/" class="nav-link">
+  重写&amp;多态
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/10/" class="nav-link">
+  抽象类和接口
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/11/" class="nav-link">
+  异常
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base2/1/" class="nav-link">
+  集合
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/2/" class="nav-link">
+  枚举&amp;工具类
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/3/" class="nav-link">
+  文件&amp;流&amp;序列化
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/4/" class="nav-link">
+  线程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/5/" class="nav-link">
+  网络编程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/6/" class="nav-link">
+  xml
+</a></li></ul></li><li class="dropdown-item"><h4>
+          mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base3/1/" class="nav-link">
+  初始mysql
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/2/" class="nav-link">
+  数据库设计
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/3/" class="nav-link">
+  数据库操作
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java_web
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base4/1/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/2/" class="nav-link">
+  HTML与CSS_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/3/" class="nav-link">
+  初识js
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/4/" class="nav-link">
+  DOM操作第二集
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/5/" class="nav-link">
+  事件&amp;bom&amp;常用函数
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/6/" class="nav-link">
+  jquery_1
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/7/" class="nav-link">
+  jquery_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/8/" class="nav-link">
+  运动框架
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java高级" class="dropdown-title"><span class="title">java高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Spring MVC
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  Spring boot
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  Spring cloud
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  spark
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  storm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="linux" class="dropdown-title"><span class="title">linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/linux/system-1/" class="nav-link">
+  操作系统（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/system-2/" class="nav-link">
+  操作系统的发展史（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/Ubuntu-view/" class="nav-link">
+  Ubuntu 图形界面入门
+</a></li><li class="dropdown-item"><!----> <a href="/linux/file/" class="nav-link">
+  文件和目录（理解）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-1/" class="nav-link">
+  常用 Linux 命令的基本使用
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-2/" class="nav-link">
+  Linux 终端命令格式
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-3/" class="nav-link">
+  文件和目录常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-4/" class="nav-link">
+  其他命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-5/" class="nav-link">
+  用户权限相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-6/" class="nav-link">
+  系统信息相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-7/" class="nav-link">
+  远程管理常用命令
+</a></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="架构图以及vue的简介"><a href="#架构图以及vue的简介" class="header-anchor">#</a> [架构图以及vue的简介]</h1> <h2 id="架构图"><a href="#架构图" class="header-anchor">#</a> <strong>架构图</strong></h2> <h3 id="前后端分离总架构图"><a href="#前后端分离总架构图" class="header-anchor">#</a> <strong>前后端分离总架构图</strong></h3> <p><img src="https://img2018.cnblogs.com/blog/1416523/201904/1416523-20190430162150330-384350168.png" alt="img"></p> <h3 id="前端架构设计图"><a href="#前端架构设计图" class="header-anchor">#</a> <strong>前端架构设计图</strong></h3> <p><img src="https://img2018.cnblogs.com/blog/1416523/201904/1416523-20190430162200897-1163950829.png" alt="img"></p> <h2 id="mvvm-架构模式"><a href="#mvvm-架构模式" class="header-anchor">#</a> <strong>MVVM</strong> <strong>架构模式</strong></h2> <h3 id="mvvm-的简介"><a href="#mvvm-的简介" class="header-anchor">#</a> <strong>MVVM</strong> <strong>的简介</strong></h3> <p>MVVM 由 Model,View,ViewModel 三部分构成，Model 层代表数据模型，也可以在Model中定义数据修改和操作的业务逻辑；View 代表UI 组件，它负责将数据模型转化成UI 展现出来，ViewModel 是一个同步View 和 Model的对象。</p> <p>在MVVM架构下，View 和 Model 之间并没有直接的联系，而是通过ViewModel进行交互，Model 和 ViewModel 之间的交互是双向的， 因此View 数据的变化会同步到Model中，而Model 数据的变化也会立即反应到View 上。</p> <p>ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</p> <h3 id="mvvm-模式图"><a href="#mvvm-模式图" class="header-anchor">#</a> <strong>MVVM</strong> <strong>模式图</strong></h3> <p><img src="https://img2018.cnblogs.com/blog/1416523/201904/1416523-20190430162210999-591085485.jpg" alt="img"></p> <h2 id="vue"><a href="#vue" class="header-anchor">#</a> <strong>vue</strong></h2> <h3 id="_1-学习-vue-的前提"><a href="#_1-学习-vue-的前提" class="header-anchor">#</a> <strong>1.</strong> <strong>学习</strong> <strong>vue</strong> <strong>的前提</strong></h3> <ul><li>你只需要了解关于 HTML、CSS 和 JavaScript 的中级知识，就能进行开发。</li> <li>vue用于构建用户界面的<strong>渐进式框架</strong>，渐进式代表的含义是：主张最少。每个框架都不可避免会有自己的一些特点，从而会对使用者有一定的要求，这些要求就是主张，主张有强有弱，它的强势程度会影响在业务开发中的使用方式。</li> <li>Vue可能有些方面是不如React，不如Angular，但它是渐进的，没有强主张，你可以在原有大系统的上面，把一两个组件改用它实现，当jQuery用；也可以整个用它全家桶开发，当Angular用；还可以用它的视图，搭配你自己设计的整个下层用。你可以在底层数据逻辑的地方用OO和设计模式的那套理念，也可以函数式，都可以，它只是个轻量视图而已，只做了自己该做的事，没有做不该做的事，仅此而已。</li> <li>我们没必要一上来就搞懂Vue的每一个部件和功能，先从核心功能开始学习，逐渐扩展。 同时，在使用中，我们也没有必要把全部件能都拿出来，需要什么用什么就是了，而且也可以把Vue很方便的与其它已有项目或框架相结合</li></ul> <h3 id="_2-vue-的简单介绍"><a href="#_2-vue-的简单介绍" class="header-anchor">#</a> <strong>2.</strong> <strong>vue</strong> <strong>的简单介绍</strong></h3> <p>Vue.js 可以说是MVVM 架构的最佳实践，是一个JavaScriptMVVM库，是一套构建用户界面的渐进式框架。专注于 MVVM 中的 ViewModel，不仅做到了数据双向绑定，而且也是一款相对比较轻量级的JS 库，API 简洁</p> <h3 id="_3-vue-热加载"><a href="#_3-vue-热加载" class="header-anchor">#</a> <strong>3.</strong> <strong>vue</strong> <strong>热加载</strong></h3> <p>因为vue的双向数据绑定特性以及技术的成形，实现了项目的热加载，改完页面代码能立即在浏览器方面显示效果，提高开发效率</p> <h3 id="_4-vue-的双向数据绑定的原理"><a href="#_4-vue-的双向数据绑定的原理" class="header-anchor">#</a> <strong>4.</strong> <strong>vue</strong> <strong>的双向数据绑定的原理</strong></h3> <p>Vue.js 是采用 Object.defineProperty 的 getter 和 setter，并结合观察者模式来实现数据绑定的。当把一个普通 Javascript 对象传给 Vue 实例来作为它的 data 选项时，Vue 将遍历它的属性，用 Object.defineProperty 将它们转为 getter/setter。用户看不到 getter/setter，但是在内部它们让 Vue 追踪依赖，在属性被访问和修改时通知变化。</p> <p><img src="https://img2018.cnblogs.com/blog/1416523/201904/1416523-20190430162235499-481742554.png" alt="img"></p> <p><strong>Observer</strong> 数据监听器，能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者，内部采用Object.defineProperty的getter和setter来实现。</p> <p><strong>Compile</strong> 指令解析器，它的作用对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数。</p> <p><strong>Watcher</strong> 订阅者， 作为连接 Observer 和 Compile 的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数。</p> <p><strong>Dep</strong> 消息订阅器，内部维护了一个数组，用来收集订阅者（Watcher），数据变动触发notify 函数，再调用订阅者的 update 方法。</p> <h3 id="_5-vue-引用与后台的交互"><a href="#_5-vue-引用与后台的交互" class="header-anchor">#</a> <strong>5.</strong> <strong>vue</strong> <strong>引用与后台的交互</strong></h3> <p>在访问一个 API 并展示其数据，基于 promise 的 HTTP 客户端 <a href="https://github.com/axios/axios" target="_blank" rel="noopener noreferrer">axios<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 则是其中非常流行的一种，</p> <p>首先，我们要通过 npm/Yarn 或一个 CDN 链接安装 axios，</p> <p>我们有很多种方式可以从 API 请求信息，但是最好首先确认这些数据看起来长什么样，以便进一步确定如何展示它。为此，我们会调用一次这个 API 并输出结果，以便我们能够看清楚它。如 CoinDesk 的 API 文档所述，请求会发送到 https://api.coindesk.com/v1/bpi/currentprice.json。所以，我们首先创建一个 data 里的属性以最终放置信息，然后将会在 mounted 生命周期钩子中获取数据并赋值过去：</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>new Vue({
+ el: '#app',
+ data () {
+   return {
+     info: null
+  }
+},
+ mounted () {
+   axios
+    .get('https://api.coindesk.com/v1/bpi/currentprice.json')
+    .then(response =&gt; (this.info = response))
+}
+})
+&lt;div id=&quot;app&quot;&gt;
+{{ info }}
+&lt;/div&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><p>我们得到的东西是这样的：</p> <div class="language-json line-numbers-mode"><pre class="language-json"><code><span class="token punctuation">{</span>
+  <span class="token property">&quot;USD&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token string">&quot;USD&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;symbol&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&amp;#36;&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;rate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;5,255.3433&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;United States Dollar&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;rate_float&quot;</span><span class="token operator">:</span> <span class="token number">5255.3433</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;GBP&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token string">&quot;GBP&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;symbol&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&amp;pound;&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;rate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;4,061.1927&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;British Pound Sterling&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;rate_float&quot;</span><span class="token operator">:</span> <span class="token number">4061.1927</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;EUR&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;code&quot;</span><span class="token operator">:</span> <span class="token string">&quot;EUR&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;symbol&quot;</span><span class="token operator">:</span> <span class="token string">&quot;&amp;euro;&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;rate&quot;</span><span class="token operator">:</span> <span class="token string">&quot;4,699.5277&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;description&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Euro&quot;</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;rate_float&quot;</span><span class="token operator">:</span> <span class="token number">4699.5277</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><p>当然这个只是一个非常简单的示例，在项目开发过程中，我们会基于axios做一些封装，包括错误处理，请求拦截，请求优化等等</p> <h3 id="_6-vue-常用的网站"><a href="#_6-vue-常用的网站" class="header-anchor">#</a> <strong>6.</strong> <strong>vue</strong> <strong>常用的网站</strong></h3> <p>vue官方文档：https://cn.vuejs.org/v2/guide/</p> <p>vue资源精选：http://vue.awesometiny.com/</p> <p>vue GitHub地址：https://github.com/vuejs/vue</p> <p>基于vue和element构建的后台前端解决方案：https://panjiachen.github.io/vue-element-admin-site/zh/</p> <h2 id="vue-项目说明"><a href="#vue-项目说明" class="header-anchor">#</a> <strong>vue</strong> <strong>项目说明</strong></h2> <p>vue项目网上有非常多的成名模板，我推荐一个，想深入学习建议多多浏览下面的地址</p> <p>vue和element构建的后台前端解决方案：&lt;https://panjiachen.github.io/vue-element-admin-site/zh/</p> <h3 id="目录结构"><a href="#目录结构" class="header-anchor">#</a> <strong>目录结构</strong></h3> <p>├── build            # 构建相关
+├── static           # 静态资源
+│  │── img           # 图片
+│  │── favicon.ico       # favicon图标
+│  └── index.html       # html模板
+│  │── Tinymce         # 富文本
+├── src             # 源代码
+│  ├── api           # 所有请求
+│  ├── assets         # 主题 字体等静态资源
+│  ├── components       # 全局公用组件
+│  ├── directive        # 全局指令
+│  ├── icons          # 项目所有 svg icons
+│  ├── lang          # 国际化 language
+│  ├── layout         # 全局 layout
+│  ├── router         # 路由
+│  ├── store          # 全局 store管理
+│  ├── styles         # 全局样式
+│  ├── utils          # 全局公用方法
+│  ├── views          # views 所有页面
+│  ├── App.vue         # 入口页面
+│  ├── main.js         # 入口文件 加载组件 初始化等
+│  └── permission.js      # 权限管理
+├── tests            # 测试
+├── .env.xxx          # 环境变量配置
+├── .eslintrc.js        # eslint 配置项
+├── .gitignore         # git 配置项
+├── .babelrc          # babel-loader 配置
+├── .travis.yml         # 自动化CI配置
+├── vue.config.js        # vue-cli 配置
+└── package.json        # package.json</p> <p>此为常见的目录结构，在实际开发过程中，会因为项目的差异，目录有些小的改动。</p> <h3 id="项目启动"><a href="#项目启动" class="header-anchor">#</a> <strong>项目启动</strong></h3> <p>在终端</p> <div class="language- line-numbers-mode"><pre class="language-text"><code># 进入项目目录（假设项目名为：vue-element-admin）
+cd vue-element-admin
+
+# 安装依赖
+npm install
+
+# 本地开发 启动项目
+npm run dev
+
+# 启动完成我们就能在，提示的地址中，浏览或开发项目（例如地址为：http://127.0.0.1:9528）
+http://127.0.0.1:9528
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="url-到页面显示的过程"><a href="#url-到页面显示的过程" class="header-anchor">#</a> <strong>url****到页面显示的过程</strong></h3> <p><img src="https://img2018.cnblogs.com/blog/1416523/201905/1416523-20190504220927760-1924551379.png" alt="img"></p> <h3 id="浏览器端显示html的过程"><a href="#浏览器端显示html的过程" class="header-anchor">#</a> 浏览器端显示HTML的过程</h3> <p><img src="https://img2018.cnblogs.com/blog/1416523/201905/1416523-20190504221009508-1904143283.png" alt="img"></p></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.7b35532a.js" defer></script><script src="/assets/js/2.bb0b31a9.js" defer></script><script src="/assets/js/49.d78c3335.js" defer></script>
+  </body>
+</html>

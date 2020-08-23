@@ -1,0 +1,186 @@
+
+Promise
+  1:回调地狱
+  2:顺序
+
+  let promise = new Promise((resolve, reject)=>{
+    // 函数
+    异步的操作 resolve(成功)
+
+
+
+  })
+
+  //优雅
+  promise.then(res=>{
+
+  }).catch(err=>{
+
+  })
+
+  //优缺点
+  1. 简单明了
+  2. 链式调用 优雅
+
+  缺点:函数调用麻烦
+      没有从根本上解决回调的问题
+
+      结果是独立的
+
+
+  async
+  await
+
+  async 函数(){
+    //await
+    let res1 = await + promise对象
+    let res1 = await + promise对象
+    let res1 = await + promise对象
+    let res1 = await + promise对象
+
+  }
+
+  宏任务 微任务
+
+
+es6 模板字符串  展开运算符  解构赋值 arr新方法  面向对象 继承  this super
+    promise
+
+Node --- 异步
+
+Node是什么?
+  服务器
+
+  java  php  c C++  C# go python
+
+  Node 效率  php 5 --> 7  86倍
+
+  1s        1.5min
+
+  20台  4W  = 80W
+  86倍        6000多万
+
+  为什么学
+    NODE 就是 js 支持的
+    多了一份筹码
+
+    服务器 : 提供别人访问 数据 并且能够响应
+
+  Node: V8内核 Chrome 浏览器
+
+  是一个安装包
+    1: 安装
+    2: 安装到哪了
+      验证安没安装好
+      小黑板
+
+  小黑板 切换盘符: e:
+  切换目录
+      上一级目录 : cd ..
+      进入某一个目录 : cd 目录的名字
+  目录中有啥东西: dir
+  自动补全  tab+ 目录的前几个字母 自动补全
+  ↑↓  有一些历史记录
+  在当前目录打开命令行
+     地址栏 打上cmd
+     shift + 鼠标右键 多出来一个目录 在此处....
+
+  怎么退出命令行: ctrl+ C
+
+  node 搭建服务度 启动 服务器  必须找到文件所在的目录
+
+  node : 可以执行js文件
+    怎么执行  cmd
+    node 文件名字.js 就可以执行了
+
+  node 执行的时候 只能识别  : 服务器用到的东西
+    js
+      ecmascript: 只能之别这个 js的语法
+      dom :
+      bom :
+  规范性问题 :
+    从现在开始
+    文件的路径: 创建的地方路径中不能包含中文 空格 特殊(, <>)字符
+    文件的名字: 符合命名规范 字母 下划线 美元 数字(不能开头) 驼峰
+  node 执行js代码 一定要在当前目录中打开命令窗口
+
+  vscode
+
+  node 服务器:
+    代码  对服务器请求  服务器可以相应
+
+    网址 :
+        1:打开浏览器
+        2:输入网址   http:// 协议-- 双方都有遵守
+        3:服务器返回给你东西
+
+  node 现成的东西 拿来用 http  fs path
+
+  http 模块 :创建一个服务器
+
+
+
+
+ 总结:
+  js:
+    1:脚本 插入到html中 操作dom  bom  看到效果
+    2:写服务器
+  node 就是一个服务器
+    可以执行js代码
+
+  node的安装
+    安装包 下载  小黑板
+      node 文件的名字.js 前提 : 在当前文件所在的目录中启动小黑板
+      命令行常见操作:
+        切换盘 e:
+        切换目录  cd 文件夹 进入到这个目录
+                cd.. 上一级
+        dir: 当前文件夹 有啥
+        快捷键:
+          tab
+          ↑
+          ↓
+    node搭建服务器
+      http的模块
+      let http = require('http')// 引入node自带的模块
+      //http 是一个对象 提供很多方法
+      服务器最关键的两个东西 接收请求  发出响应
+      let server = http.createServer((req,res)=>{
+        res.write('信息');
+        res.end()//不能省略
+      }))
+      server.listen(8080)// http://localhost:8080
+
+    运行 在当前文件所在的目录中开启 小黑板
+    node 文件名字.js
+    停滞 代表 文件正在运行
+
+    此时 浏览器 访问 http://localhost:8080 访问到我的服务器
+
+    注意:
+      路径中不能有中文 不能有特殊字符
+      小黑板如果关掉 服务器就关掉了
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

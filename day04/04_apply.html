@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  function fn1(...args) {
+
+    console.log(this, args);
+  }
+
+  let obj = {name: '张三'};
+
+  //call 传参可以传无限个  apply 传参用数组的方式传递
+  fn1.apply(obj, ['1', '2','fsfs']);
+
+  /*
+  * 函数在调用 call 和 apply的时候 函数是立即执行
+  *
+  * call 参数是写在实参位置的  apply 参数是放在数组中
+  * */
+
+
+
+
+</script>
+</body>
+</html>

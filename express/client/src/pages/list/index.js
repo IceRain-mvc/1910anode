@@ -1,0 +1,1 @@
+document.getElementsByTagName('p')[0].innerHTML = '世界，你好'

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>*1、封装  面向对象三大特征之一 | 冰雨的个人博客</title>
+    <meta name="description" content="宝哥带你上王者">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/Webpack.png">
+    
+    <link rel="preload" href="/assets/css/0.styles.5b14f93b.css" as="style"><link rel="preload" href="/assets/js/app.7b35532a.js" as="script"><link rel="preload" href="/assets/js/2.bb0b31a9.js" as="script"><link rel="preload" href="/assets/js/16.07474eb6.js" as="script"><link rel="prefetch" href="/assets/js/10.6ffa5b08.js"><link rel="prefetch" href="/assets/js/11.3d45ce76.js"><link rel="prefetch" href="/assets/js/12.82434d2f.js"><link rel="prefetch" href="/assets/js/13.20b5834a.js"><link rel="prefetch" href="/assets/js/14.6acc4619.js"><link rel="prefetch" href="/assets/js/15.24ec88ee.js"><link rel="prefetch" href="/assets/js/17.454c466b.js"><link rel="prefetch" href="/assets/js/18.7a4df9ed.js"><link rel="prefetch" href="/assets/js/19.f6e02e6a.js"><link rel="prefetch" href="/assets/js/20.9e3ffac8.js"><link rel="prefetch" href="/assets/js/21.7de02677.js"><link rel="prefetch" href="/assets/js/22.7cce5182.js"><link rel="prefetch" href="/assets/js/23.00216395.js"><link rel="prefetch" href="/assets/js/24.a22e3c13.js"><link rel="prefetch" href="/assets/js/25.60da070f.js"><link rel="prefetch" href="/assets/js/26.54bce5f0.js"><link rel="prefetch" href="/assets/js/27.ed66f3bc.js"><link rel="prefetch" href="/assets/js/28.4ed8d082.js"><link rel="prefetch" href="/assets/js/29.03851bd6.js"><link rel="prefetch" href="/assets/js/3.80497d93.js"><link rel="prefetch" href="/assets/js/30.5c64322a.js"><link rel="prefetch" href="/assets/js/31.e9700d52.js"><link rel="prefetch" href="/assets/js/32.1cf50bfb.js"><link rel="prefetch" href="/assets/js/33.c72e4631.js"><link rel="prefetch" href="/assets/js/34.eb19460b.js"><link rel="prefetch" href="/assets/js/35.ea755e67.js"><link rel="prefetch" href="/assets/js/36.5811efa0.js"><link rel="prefetch" href="/assets/js/37.2fabbe98.js"><link rel="prefetch" href="/assets/js/38.78ef4b98.js"><link rel="prefetch" href="/assets/js/39.18c3460c.js"><link rel="prefetch" href="/assets/js/4.cd6abf10.js"><link rel="prefetch" href="/assets/js/40.f36f5a12.js"><link rel="prefetch" href="/assets/js/41.a36ee788.js"><link rel="prefetch" href="/assets/js/42.a7eb05be.js"><link rel="prefetch" href="/assets/js/43.59958219.js"><link rel="prefetch" href="/assets/js/44.6cd1083d.js"><link rel="prefetch" href="/assets/js/45.2a2045da.js"><link rel="prefetch" href="/assets/js/46.f217e4e8.js"><link rel="prefetch" href="/assets/js/47.c976443f.js"><link rel="prefetch" href="/assets/js/48.9f79bfaa.js"><link rel="prefetch" href="/assets/js/49.d78c3335.js"><link rel="prefetch" href="/assets/js/5.e0a57f13.js"><link rel="prefetch" href="/assets/js/50.23fe9ab2.js"><link rel="prefetch" href="/assets/js/51.ef572dd8.js"><link rel="prefetch" href="/assets/js/52.6c62ff52.js"><link rel="prefetch" href="/assets/js/53.ff1608d2.js"><link rel="prefetch" href="/assets/js/54.95a2d7f1.js"><link rel="prefetch" href="/assets/js/55.6ea68f79.js"><link rel="prefetch" href="/assets/js/56.fe0a887c.js"><link rel="prefetch" href="/assets/js/57.19f65329.js"><link rel="prefetch" href="/assets/js/58.903aba0e.js"><link rel="prefetch" href="/assets/js/59.3293f36c.js"><link rel="prefetch" href="/assets/js/6.4e2fc747.js"><link rel="prefetch" href="/assets/js/60.0a51a3f3.js"><link rel="prefetch" href="/assets/js/61.fafed8ff.js"><link rel="prefetch" href="/assets/js/62.434df506.js"><link rel="prefetch" href="/assets/js/63.8d23d3f5.js"><link rel="prefetch" href="/assets/js/64.b9199119.js"><link rel="prefetch" href="/assets/js/65.a0b5f8af.js"><link rel="prefetch" href="/assets/js/66.ef99503a.js"><link rel="prefetch" href="/assets/js/67.40694a28.js"><link rel="prefetch" href="/assets/js/68.1c3664fb.js"><link rel="prefetch" href="/assets/js/69.4b116e57.js"><link rel="prefetch" href="/assets/js/7.bd40b967.js"><link rel="prefetch" href="/assets/js/70.2d7b4e69.js"><link rel="prefetch" href="/assets/js/71.31cc5d84.js"><link rel="prefetch" href="/assets/js/72.376ad0f1.js"><link rel="prefetch" href="/assets/js/73.096674e4.js"><link rel="prefetch" href="/assets/js/74.194292ed.js"><link rel="prefetch" href="/assets/js/75.fc469464.js"><link rel="prefetch" href="/assets/js/8.af14a011.js"><link rel="prefetch" href="/assets/js/9.a07b69f9.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.5b14f93b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">冰雨的个人博客</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web基础" class="dropdown-title"><span class="title">web基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/base/webpack/" class="nav-link">
+  html+css
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-pre/" class="nav-link">
+  js上
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-next/" class="nav-link">
+  js下
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/model/" class="nav-link">
+  模块化开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mobile/" class="nav-link">
+  移动端开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/node-base/" class="nav-link">
+  node基础
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mini-project/" class="nav-link">
+  微信小程序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web进阶" class="dropdown-title"><span class="title">web进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/advanced/webpack/" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/vue/" class="nav-link">
+  Vue进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/react/" class="nav-link">
+  React进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/js/" class="nav-link">
+  Js进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/architecture/" class="nav-link">
+  架构进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/protocol/" class="nav-link">
+  网络协议
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/git/" class="nav-link">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/Interview/" class="nav-link">
+  面试题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="python" class="dropdown-title"><span class="title">python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  python基础
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  python进阶
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  python爬虫
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  python数据分析
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  人工智能初步
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="C端开发" class="dropdown-title"><span class="title">C端开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  android
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  react-native
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  weex
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  ios
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java基础" class="dropdown-title"><span class="title">java基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base1/1/" class="nav-link">
+  初识java
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/2/" class="nav-link">
+  变量
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/3/" class="nav-link">
+  控制语句
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/4/" class="nav-link">
+  循环
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/5/" class="nav-link">
+  数组
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/6/" class="nav-link">
+  面向对象上
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/7/" class="nav-link">
+  面向对象下
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/8/" class="nav-link router-link-exact-active router-link-active">
+  继承&amp;封装
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/9/" class="nav-link">
+  重写&amp;多态
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/10/" class="nav-link">
+  抽象类和接口
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/11/" class="nav-link">
+  异常
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base2/1/" class="nav-link">
+  集合
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/2/" class="nav-link">
+  枚举&amp;工具类
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/3/" class="nav-link">
+  文件&amp;流&amp;序列化
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/4/" class="nav-link">
+  线程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/5/" class="nav-link">
+  网络编程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/6/" class="nav-link">
+  xml
+</a></li></ul></li><li class="dropdown-item"><h4>
+          mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base3/1/" class="nav-link">
+  初始mysql
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/2/" class="nav-link">
+  数据库设计
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/3/" class="nav-link">
+  数据库操作
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java_web
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base4/1/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/2/" class="nav-link">
+  HTML与CSS_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/3/" class="nav-link">
+  初识js
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/4/" class="nav-link">
+  DOM操作第二集
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/5/" class="nav-link">
+  事件&amp;bom&amp;常用函数
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/6/" class="nav-link">
+  jquery_1
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/7/" class="nav-link">
+  jquery_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/8/" class="nav-link">
+  运动框架
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java高级" class="dropdown-title"><span class="title">java高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Spring MVC
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  Spring boot
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  Spring cloud
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  spark
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  storm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="linux" class="dropdown-title"><span class="title">linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/linux/system-1/" class="nav-link">
+  操作系统（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/system-2/" class="nav-link">
+  操作系统的发展史（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/Ubuntu-view/" class="nav-link">
+  Ubuntu 图形界面入门
+</a></li><li class="dropdown-item"><!----> <a href="/linux/file/" class="nav-link">
+  文件和目录（理解）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-1/" class="nav-link">
+  常用 Linux 命令的基本使用
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-2/" class="nav-link">
+  Linux 终端命令格式
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-3/" class="nav-link">
+  文件和目录常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-4/" class="nav-link">
+  其他命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-5/" class="nav-link">
+  用户权限相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-6/" class="nav-link">
+  系统信息相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-7/" class="nav-link">
+  远程管理常用命令
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web基础" class="dropdown-title"><span class="title">web基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/base/webpack/" class="nav-link">
+  html+css
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-pre/" class="nav-link">
+  js上
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/js-next/" class="nav-link">
+  js下
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/model/" class="nav-link">
+  模块化开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mobile/" class="nav-link">
+  移动端开发
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/node-base/" class="nav-link">
+  node基础
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/vue/" class="nav-link">
+  vue
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/react/" class="nav-link">
+  react
+</a></li><li class="dropdown-item"><!----> <a href="/web/base/mini-project/" class="nav-link">
+  微信小程序
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="web进阶" class="dropdown-title"><span class="title">web进阶</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/web/advanced/webpack/" class="nav-link">
+  webpack
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/vue/" class="nav-link">
+  Vue进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/react/" class="nav-link">
+  React进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/js/" class="nav-link">
+  Js进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/architecture/" class="nav-link">
+  架构进阶教程
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/protocol/" class="nav-link">
+  网络协议
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/git/" class="nav-link">
+  git
+</a></li><li class="dropdown-item"><!----> <a href="/web/advanced/Interview/" class="nav-link">
+  面试题
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="python" class="dropdown-title"><span class="title">python</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  python基础
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  python进阶
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  python爬虫
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  python数据分析
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  人工智能初步
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="C端开发" class="dropdown-title"><span class="title">C端开发</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  android
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  react-native
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  flutter
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  weex
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  ios
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java基础" class="dropdown-title"><span class="title">java基础</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><h4>
+          java基础
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base1/1/" class="nav-link">
+  初识java
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/2/" class="nav-link">
+  变量
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/3/" class="nav-link">
+  控制语句
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/4/" class="nav-link">
+  循环
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/5/" class="nav-link">
+  数组
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/6/" class="nav-link">
+  面向对象上
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/7/" class="nav-link">
+  面向对象下
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/8/" class="nav-link router-link-exact-active router-link-active">
+  继承&amp;封装
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/9/" class="nav-link">
+  重写&amp;多态
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/10/" class="nav-link">
+  抽象类和接口
+</a></li><li class="dropdown-subitem"><a href="/java/base/base1/11/" class="nav-link">
+  异常
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java进阶
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base2/1/" class="nav-link">
+  集合
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/2/" class="nav-link">
+  枚举&amp;工具类
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/3/" class="nav-link">
+  文件&amp;流&amp;序列化
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/4/" class="nav-link">
+  线程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/5/" class="nav-link">
+  网络编程
+</a></li><li class="dropdown-subitem"><a href="/java/base/base2/6/" class="nav-link">
+  xml
+</a></li></ul></li><li class="dropdown-item"><h4>
+          mysql
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base3/1/" class="nav-link">
+  初始mysql
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/2/" class="nav-link">
+  数据库设计
+</a></li><li class="dropdown-subitem"><a href="/java/base/base3/3/" class="nav-link">
+  数据库操作
+</a></li></ul></li><li class="dropdown-item"><h4>
+          java_web
+        </h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/java/base/base4/1/" class="nav-link">
+  HTML&amp;CSS
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/2/" class="nav-link">
+  HTML与CSS_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/3/" class="nav-link">
+  初识js
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/4/" class="nav-link">
+  DOM操作第二集
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/5/" class="nav-link">
+  事件&amp;bom&amp;常用函数
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/6/" class="nav-link">
+  jquery_1
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/7/" class="nav-link">
+  jquery_2
+</a></li><li class="dropdown-subitem"><a href="/java/base/base4/8/" class="nav-link">
+  运动框架
+</a></li></ul></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="java高级" class="dropdown-title"><span class="title">java高级</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/webpack/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/vue/" class="nav-link">
+  Spring MVC
+</a></li><li class="dropdown-item"><!----> <a href="/react/" class="nav-link">
+  MyBatis
+</a></li><li class="dropdown-item"><!----> <a href="/js/" class="nav-link">
+  Spring boot
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  Spring cloud
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  hadoop
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  spark
+</a></li><li class="dropdown-item"><!----> <a href="/architecture/" class="nav-link">
+  storm
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="linux" class="dropdown-title"><span class="title">linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/linux/system-1/" class="nav-link">
+  操作系统（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/system-2/" class="nav-link">
+  操作系统的发展史（科普章节）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/Ubuntu-view/" class="nav-link">
+  Ubuntu 图形界面入门
+</a></li><li class="dropdown-item"><!----> <a href="/linux/file/" class="nav-link">
+  文件和目录（理解）
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-1/" class="nav-link">
+  常用 Linux 命令的基本使用
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-2/" class="nav-link">
+  Linux 终端命令格式
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-3/" class="nav-link">
+  文件和目录常用命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-4/" class="nav-link">
+  其他命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-5/" class="nav-link">
+  用户权限相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-6/" class="nav-link">
+  系统信息相关命令
+</a></li><li class="dropdown-item"><!----> <a href="/linux/commands-7/" class="nav-link">
+  远程管理常用命令
+</a></li></ul></div></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="_1、封装-面向对象三大特征之一"><a href="#_1、封装-面向对象三大特征之一" class="header-anchor">#</a> *1、封装  面向对象三大特征之一</h3> <ul><li>什么是<strong>封装</strong>：将类的某些信息（属性或方法）隐藏在类内部，不许外部程序直接访问，</li> <li>而是通过该类提供的方法（<code>getter</code>/<code>setter</code>）来实现对隐藏信的操作和访问</li></ul> <h3 id="_2、封装的好处"><a href="#_2、封装的好处" class="header-anchor">#</a> *2、封装的好处</h3> <ul><li>便于使用者正确使用系统，防止错误修改属性</li> <li>有助于系统之间的松耦合，提高系统独立性</li> <li>提高软件的可重用性</li> <li>降低了构建大型系统的风险</li></ul> <h3 id="_3、封装的步骤"><a href="#_3、封装的步骤" class="header-anchor">#</a> 3、封装的步骤</h3> <ul><li>修改属性的可见性</li> <li>创建公有的getter/setter方法</li> <li>在getter/setter方法中加入属控制语句</li> <li></li></ul> <blockquote><p><strong>注意</strong>：允许只出现一个getter或setter方法，只有一个getter代表当前属性只读，只有一个setter代表当前属性只写</p></blockquote> <h3 id="_4、包的作用"><a href="#_4、包的作用" class="header-anchor">#</a> 4、包的作用</h3> <ul><li>a、允许类组成较小的单元（类似文件夹），易于找到和使用相应的文件</li> <li>b、有助于实施<strong>访问权限控制</strong></li> <li>c、防止命名冲突，<strong>区分</strong>名字相同的类</li></ul> <h3 id="_5、包命名规范"><a href="#_5、包命名规范" class="header-anchor">#</a> 5、包命名规范</h3> <ul><li>a、包名由<strong>小写</strong>字母组成，不能以圆点开头或结尾</li> <li>b、包名之前最好加上唯一的前缀，通常使用组织<strong>倒置的网络域名</strong></li> <li>c、包名后续部分依不同机构内部的规范不同而不同</li></ul> <h3 id="_6、使用包的注意事项"><a href="#_6、使用包的注意事项" class="header-anchor">#</a> 6、使用包的注意事项</h3> <ul><li>a、一个类同时引用了两个来自不同包的同名类---必须通过<strong>完整类名来区分</strong></li> <li>b、每个包都是独立的，顶层包不会包含子包的类</li> <li>c、package和import的顺序是固定的
+<ul><li>package必须位于第一行（忽略注释行）</li> <li>只允许有一个package语句</li> <li>其次是import</li> <li>接着是类的声明</li></ul></li></ul> <h3 id="_7、类成员的访问修饰"><a href="#_7、类成员的访问修饰" class="header-anchor">#</a> *7、类成员的访问修饰</h3> <table><thead><tr><th>访问修饰符</th> <th>本类</th> <th>同包</th> <th>子类</th> <th>任何地方</th></tr></thead> <tbody><tr><td>private</td> <td>√</td> <td></td> <td></td> <td></td></tr> <tr><td>默认(friendly)</td> <td>√</td> <td>√</td> <td></td> <td></td></tr> <tr><td>protected	（受保护的）</td> <td>√</td> <td>√</td> <td>√</td> <td></td></tr> <tr><td>public</td> <td>√</td> <td>√</td> <td>√</td> <td>√</td></tr></tbody></table> <h3 id="_8、static修饰符"><a href="#_8、static修饰符" class="header-anchor">#</a> *8、	static修饰符</h3> <h4 id="_8-1-static可以用来修饰"><a href="#_8-1-static可以用来修饰" class="header-anchor">#</a> 8.1 static可以用来修饰:</h4> <ul><li>成员变量
+<ul><li>静态变量，可以直接通过类名访问  <code>static int age;</code></li></ul></li> <li>成员方法
+<ul><li>静态方法，可以直接通过类名访问  <code>public static void show(){}</code></li></ul> <blockquote><p><strong>注意</strong>：static修饰的方法中不能使用this和super关键字调用属性和方法（需要通过new对象来调用）</p></blockquote></li> <li>代码块
+<ul><li><p>*静态代码块，当Java虚拟机加载类时，就会执行该代码块   <code>static{}</code></p></li> <li><p>实例成员和静态成员的区别：
+<code>static</code>修饰的成员特点，程序启动时立即分配空间，并且始终保持同一个空间，程序停止在释放空间，全局只创建一次。
+实例成员（new对象才能用的）创建对象并调用的时候才会分配空间，方法执行完成就释放空间，可以被创建多次。</p></li> <li><p>什么时候使用<code>static</code>修饰符
+1、<code>static</code>修饰的方法：制作工具类（处理字符串的，处理发送消息的，导入导出excel，加密的）中的方法
+2、<code>staitc</code>修饰的属性：在多个类中共享同一个数据
+3、<code>static</code>静态代码块：完成单例模式和程序的初始化工作</p></li></ul></li></ul> <h4 id="_8-2-static修饰与非static修饰的区别"><a href="#_8-2-static修饰与非static修饰的区别" class="header-anchor">#</a> 8.2 static修饰与非static修饰的区别</h4> <table><thead><tr><th></th> <th>static修饰</th> <th>非static修饰</th></tr></thead> <tbody><tr><td>属性</td> <td>类属性、类变量</td> <td>实例属性、实例变量</td></tr> <tr><td>方法</td> <td>类方法</td> <td>实例方法</td></tr> <tr><td>调用方式</td> <td>类名.属性  类名.方法()    对象.属性   对象.方法()</td> <td>对象.属性,对象.方法()</td></tr> <tr><td>归属</td> <td>类</td> <td>单个对象</td></tr></tbody></table> <h3 id="_9、安装阿里代码检查插件："><a href="#_9、安装阿里代码检查插件：" class="header-anchor">#</a> 9、安装阿里代码检查插件：</h3> <p>https://blog.csdn.net/skieske/article/details/78250137</p> <h3 id="_10、继承"><a href="#_10、继承" class="header-anchor">#</a> *10、继承</h3> <h5 id="a、什么是继承：面向对象三大特征之一，指一个对象直接使用另一对象的属性和方法"><a href="#a、什么是继承：面向对象三大特征之一，指一个对象直接使用另一对象的属性和方法" class="header-anchor">#</a> * a、什么是继承：面向对象三大特征之一，指一个对象直接使用另一对象的属性和方法</h5> <h5 id="b、为什么需要继承：减少代码冗余，方便维护"><a href="#b、为什么需要继承：减少代码冗余，方便维护" class="header-anchor">#</a> * b、为什么需要继承：<strong>减少代码冗余，方便维护</strong></h5> <h5 id="c、继承的特性"><a href="#c、继承的特性" class="header-anchor">#</a> * c、继承的特性</h5> <ul><li>子类可以调用父类非<code>private</code>的属性和方法。
+<ul><li>子类可以对父类的属性和方法进行<strong>扩展</strong>。</li></ul></li> <li>子类可以用自己的方式实现父类的方法。</li> <li>Java的继承是单继承，但是可以多重继承，
+<ul><li>单继承就是一个子类只能继承一个父类，</li> <li>多重继承就是，例如A类继承B类，B类继承C类，所以按照关系就是C类是B类的父类，B类是A类的父类</li></ul></li> <li><code>提高</code>了类之间的<strong>耦合性</strong>（继承的缺点，耦合度高就会造成代码之间的联系更紧密）。</li></ul> <h5 id="d、继承关键字"><a href="#d、继承关键字" class="header-anchor">#</a> * d、继承关键字</h5> <ul><li>继承可以使用 <code>extends</code> 和 <code>implements</code> 这两个关键字来实现继承，而且所有的类都是继承于 <code>java.lang.Object</code>，</li> <li>当一个类没有继承的两个关键字，则默认继承<code>Object</code></li></ul> <h5 id="e、super关键字"><a href="#e、super关键字" class="header-anchor">#</a> * e、<code>super</code>关键字</h5> <ul><li>调用父类的属性、方法、构造方法</li> <li><code>super</code>只能出现在子类的方法和构造方法中</li> <li><code>super</code>调用构造方法时，只能是第一句</li> <li><code>super</code>不能访问父类的<code>private</code>成员</li></ul> <h5 id="f、final修饰符"><a href="#f、final修饰符" class="header-anchor">#</a> * f、final修饰符</h5> <ul><li>修饰常量，声明时必须赋值</li> <li>修饰类，此类不能被继承--最终类</li> <li>修饰方法，方法不能被重写--最终方法</li> <li>修饰属性，属性不能被赋值。</li></ul> <h5 id="g、访问修饰符protected"><a href="#g、访问修饰符protected" class="header-anchor">#</a> * g、访问修饰符<code>protected</code></h5> <ul><li><code>protected</code> 意为受保护的，</li> <li>可以修饰属性和方法</li> <li>本类、同包、子类可以访问</li></ul> <h5 id="h、继承条件下构造方法的调用规则"><a href="#h、继承条件下构造方法的调用规则" class="header-anchor">#</a> * h、继承条件下构造方法的调用规则</h5> <ul><li>子类构造方法默认调用父类的无参构造方法   <code>super();</code></li> <li>子类构造方法通过<code>super</code>调用父类的有参构造方法，父类执行相应构造方法，而不执行父类无参构造方法  super(&quot;张三&quot;,20);</li></ul> <h5 id="i、不能被继承的情况："><a href="#i、不能被继承的情况：" class="header-anchor">#</a> * i、不能被继承的情况：</h5> <ul><li>1、<code>private</code> 成员</li> <li>2、子类与父类不在同包，使用默认访问权限的成员。</li> <li>3、构造方法</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.7b35532a.js" defer></script><script src="/assets/js/2.bb0b31a9.js" defer></script><script src="/assets/js/16.07474eb6.js" defer></script>
+  </body>
+</html>

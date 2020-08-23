@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  /*
+  * es5中的面向对象
+  *
+  * */
+
+  let arr = new Array(1, 2, 3);
+
+  //1: 对象(实例)  = new 类/构造函数()
+
+
+  //Person 大写
+
+  //Person 类 === 构造函数
+  //es中 类 === 构造函数
+  //类: 只要有 new new后面跟着的就是类
+  //构造函数 : 通过参数 可以传递到函数本身的this身上
+
+
+  function Person(name,age) {
+    //this === person // true
+    this.name = name;
+    this.age = age;
+
+    this.fn = function () {
+      console.log(this === person);
+
+    }
+  }
+
+  //new 得到了实例
+  let person = new Person('张三',20);//对象
+  console.log(person.name);
+  console.log(person.age);
+  console.log(person.fn());
+
+
+</script>
+</body>
+</html>

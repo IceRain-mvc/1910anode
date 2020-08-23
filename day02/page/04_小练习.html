@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  /*
+  * 1:
+  * */
+  // console.log(Array.prototype);
+  // console.log(Date.prototype);
+  // console.log(Object.prototype);
+  // console.log(String.prototype);
+
+  /*
+  * 2:
+  * */
+  let arr = new Array(1, 2, 3);
+
+  let date = new Date('2020-03-04');
+
+  let obj = new Object();
+
+  let str = '12345';
+
+  console.log(arr.__proto__);
+  console.log(date.__proto__);
+  console.log(obj.__proto__);
+  console.log(str.__proto__);
+
+
+  /*
+  * 3:
+  * */
+
+  console.log(arr.__proto__ === Array.prototype);
+
+  /*
+  * 4:
+  * 结论:
+  *   1:方法中的super 和 方法所属对象.__proto__ 是一样的
+  *   2:方法中的this 指向的就是对象  this===obj  //true
+  * */
+
+
+  Object.prototype.hello = function () {
+
+  };
+
+  let obj1 = {
+    sayHello() {
+      console.log(super.hello===this.__proto__.hello);
+      console.log(this === obj1);
+      console.log(this.__proto__.hello);
+    }
+  };
+
+  obj1.sayHello();
+
+
+  /*
+  * 5:把this的指向弄明白
+  * */
+
+  function say() {
+    console.log(this);
+  }
+
+  //window.say();
+  let obj2 = {
+    name: 'Hi',
+    say
+
+  };
+  obj2.say();
+
+  let obj3 = {
+    name: 'AOAO',
+    say
+  };
+
+  obj3.say();
+
+
+</script>
+</body>
+</html>

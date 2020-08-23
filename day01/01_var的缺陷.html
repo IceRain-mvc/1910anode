@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  //1:
+  /* var name = 5;
+   console.log(name);
+   var name = 10;
+   console.log(name);
+
+
+
+   var name = 40
+   console.log(name);
+
+   */
+
+  /*2:*/
+  /*a = 10;
+  console.log(a);
+*/
+
+  /*
+  * 3 : 变量提升
+  * */
+
+  /*console.log(a);
+  var a = 10;*/
+
+  /*
+  * 4:for
+  * */
+  // for (var i = 0; i < 10; i++) {
+  //
+  // }
+  // //i : 全局
+  // console.log(i);
+
+  var arr = [];
+  for (var i = 0; i < 10; i++) {
+    arr.push(function () {
+      console.log(i);
+    })
+  }
+  //i : 全局
+  console.log(arr);
+  arr[0]();
+
+
+
+</script>
+</body>
+</html>

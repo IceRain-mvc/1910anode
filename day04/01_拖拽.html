@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+
+    }
+    #app {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: #2f872f;
+      border-radius: 50%;
+      left: 200px;
+      top: 200px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app"></div>
+<script>
+  //小球
+  app.onmousedown = function (event) {
+
+    console.log(event);
+    //计算初始位置 方块的初始位置
+    let disX = event.clientX - app.offsetLeft;
+    let disY = event.clientY - app.offsetTop;
+    /*
+    * 鼠标移动事件
+    *   改变小块块的位置
+    * */
+
+    document.onmousemove = function (ev) {
+      app.style.left = `${ev.clientX - disX}px`;
+      app.style.top = `${ev.clientY - disY}px`;
+    };
+
+    /*
+    * 鼠标抬起事件
+    *   清除拖动状态
+    * */
+
+    document.onmouseup = function () {
+      document.onmousemove = null;
+      document.onmouseup = null;
+    }
+  }
+
+</script>
+</body>
+</html>

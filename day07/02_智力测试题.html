@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+
+
+  function add(n1) {
+    //逻辑
+    n1 = n1 * n1;
+    return function (n2) {
+      //逻辑
+      return function (n3) {
+        //逻辑
+        return function (n4) {
+          return n1 + n2 + n3 + n4;
+        };
+      }
+    }
+  }
+
+  // console.log(add(1)(2));
+
+  let res = add(1)(2)(3)(4); // 1的平方+2的平方+3+4
+  console.log(res);
+
+  // add(1, 2, 3, 4);
+
+
+  //这种写法就叫 回调地狱
+
+  //Promise
+
+
+</script>
+</body>
+</html>

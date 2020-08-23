@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/request.js"></script>
+</head>
+<body>
+  <div>
+    <h1>注册</h1>
+
+    <input type="text" id="username">
+    <input type="text" id="password">
+    <button id="register">注册</button>
+
+  </div>
+
+  <script>
+    /*
+    * 点击按钮 实现ajax请求 post
+    *   得到结果
+    *   成功 还是失败
+    *   成功
+    *     跳转到登录页
+    *
+    * 登录接口:  /login
+    * 注册接口:  /register
+    * 用户列表接口 :  /user
+    *
+    * */
+
+    register.onclick = function () {
+      //同域
+      // request.post('http://localhost:3000/login');等价于
+      request.post('/register',{
+        username: username.value.trim(),
+        password: password.value.trim()
+      },function (result) {
+        if (result.code === 1) {
+          alert(result.msg);
+          location.href = '/login.html';
+        } else {
+          alert(result.msg);
+        }
+      });
+
+    }
+
+
+  </script>
+</body>
+</html>

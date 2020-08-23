@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .active{
+      background-color: #b0d1b7;
+    }
+
+    #list li {
+      border: 1px solid #cccccc;
+      width: 40px;
+      height: 40px;
+      display: inline-block;
+      font-size: 20px;
+      line-height: 40px;
+      text-align: center;
+      user-select: none;
+      cursor: pointer;
+
+    }
+
+  </style>
+</head>
+<body>
+<div>
+  <ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+  </ul>
+
+</div>
+<script>
+  let oLi = document.getElementsByTagName('li');
+  console.log(oLi);
+
+  //var i 全局的 function里面的i 应该是 oLi.length
+  for (let i = 0; i < oLi.length; i++) {
+    // arr.push(function () {
+    //   console.log(i)
+    // })
+    oLi[i].onclick = function () {
+      oLi[i].classList.add('active');
+    }
+  }
+
+
+</script>
+</body>
+</html>

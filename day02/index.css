@@ -1,0 +1,37 @@
+*{margin: 0; padding: 0;}
+.page{
+  height: 30px;
+  padding-top: 20px;
+  padding-left: 50px;
+  cursor: pointer;
+}
+.page li{
+  list-style: none;
+  line-height: 28px;
+  padding: 0 10px;
+  border: 1px solid #f0f0f0;
+  float: left;
+  margin-right: 10px;
+  color: #666;
+}
+
+.page li:hover, li.current-page {
+  background-color: #4596ce;
+  color: #fff;
+}
+li.jumpto{
+  border: 0;
+}
+li.jumpto:hover{
+  background-color: transparent;
+  color: #666;
+}
+.jumpto input{
+  width: 40px; height: 30px; line-height: 28px;
+  background-color: #fafafa;
+  border: 1px solid #f0f0f0;
+  margin-left: 10px;
+  margin-right: 10px;
+  outline: none;
+  padding-left: 5px;
+}

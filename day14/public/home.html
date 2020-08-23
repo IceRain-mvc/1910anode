@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/request.js"></script>
+</head>
+<body>
+<div>
+  <h1>Home页</h1>
+  <ul id="list">
+
+  </ul>
+
+</div>
+
+<script>
+
+  /*
+  * 展示所有的用户
+  * */
+
+  request.get('/users', function (result) {
+    if (result) {
+      console.log(result);
+      list.innerHTML = result.map((item, index) => {
+        if (index === 0) {
+          return `<li>用户id&nbsp;&nbsp;用户名&nbsp;&nbsp;密码</li>
+                  <li>${item.id}&nbsp;&nbsp;
+                  ${item.username}&nbsp;&nbsp;
+                  ${item.password}</li>
+                 `
+        }
+        return `
+            <li>${item.id}&nbsp;&nbsp;
+            ${item.username}&nbsp;&nbsp;
+            ${item.password}</li>
+          `;
+      }).join('');
+
+    }
+  })
+
+</script>
+</body>
+</html>

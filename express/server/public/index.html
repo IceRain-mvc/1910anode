@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+<button>注册</button>
+<button>登录</button>
+<script src="request.js"></script>
+<script>
+  const btns = document.getElementsByTagName('button');
+  btns[0].onclick = () => {
+    request.post('/user/register', {username: 'zs', password: '123'}, data => {
+      console.log(data);
+    })
+  };
+  btns[1].onclick = () => {
+    request.post('/user/login', {username: 'zs', password: '123'}, data => {
+      console.log(data);
+      if (data.rs) {
+        localStorage.setItem('rs', data.rs);
+      }
+    })
+  }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+
+    .circle {
+      /*width: 40px;*/
+      /*height: 40px;*/
+      border-radius: 50%;
+      /*background-color: #d14596;*/
+      position: absolute;
+    }
+
+    .rect {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+<div id="box">
+  <button id="btnCircle">随机生成小球</button>
+  <button id="btnRect">随机生成方块</button>
+</div>
+
+<script>
+  let index = 0;
+  btnCircle.onclick = function () {
+    new Circle();
+  };
+  btnRect.onclick = function () {
+    new Rect();
+  };
+
+  class Graph {
+    random(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    randomColor() {
+      //# 1-9 + abcdef
+      //#1efc4d
+      const letters = ['a', 'b', 'c', 'd', 'e', 'f'];
+      const strs = [...letters];
+      for (let i = 0; i < 10; i++) {
+        strs.push(i + '');
+      }
+      // console.log(strs);
+      //#1efc4d
+      let i = 0;
+      let colorStr = '#';
+      while (i < 6) {
+        //随机的下标
+        let index = this.random(0, strs.length);
+        colorStr += strs[index];
+        i++;
+      }
+      // console.log(colorStr);
+      return colorStr;
+    }
+
+
+    drag(target) {
+      this.target = target;
+      this.target.onmousedown = (event) => {
+        this.fnDown(event);
+      }
+    }
+
+    fnDown(event) {
+      this.target.style.zIndex = (++index) + "";
+      //计算初始位置 方块的初始位置
+      // console.log(_this);//this指向 : 谁调用就指向谁  现在是div
+      //this 如果在function中 谁调用这个函数 this就指向谁
+      //this 在箭头函数中 this指向上级作用域  this在类中 用箭头函数 指向的就是类的对象
+      this.disX = event.clientX - this.target.offsetLeft;
+      this.disY = event.clientY - this.target.offsetTop;
+      /*
+      * 鼠标移动事件
+      *   改变小块块的位置
+      * */
+      document.onmousemove = (ev) => {
+        this.fnMove(ev);
+      };
+      /*
+      * 鼠标抬起事件
+      *   清除拖动状态
+      * */
+      document.onmouseup = this.fnUp;
+    }
+
+    fnMove(ev) {
+      // console.log(_this);
+      //document
+      this.target.style.left = `${ev.clientX - this.disX}px`;
+      this.target.style.top = `${ev.clientY - this.disY}px`;
+    }
+
+    fnUp() {
+      document.onmousemove = null;
+      document.onmouseup = null;
+    }
+
+  }
+
+  class Circle extends Graph {
+    /*
+    * 构造函数可以省略
+    *
+    * 小球:属性 : 大小 小球的颜色 位置
+    *     方法 : 功能 创建小球/随机数/随机颜色/拖拽
+    *
+    * */
+    constructor() {
+      /*
+      * 属性 : 小球本身 颜色 位置
+      * */
+      /*大小*/
+      super();
+      this.r = this.random(10, 100);
+      this.x = this.random(10, 1200);
+      this.y = this.random(10, 500);
+      this.color = this.randomColor();
+      //调用创建小球的方法
+      this.createEl();
+      this.drag(this.circle);
+    }
+
+    /*
+     * 方法 : 功能
+     * */
+
+    /*创建小球*/
+    createEl() {
+      let {r, color, x, y} = this;
+      this.circle = document.createElement('div');
+      this.circle.classList.add('circle');
+      this.circle.style.width = `${r * 2}px`;
+      this.circle.style.height = `${r * 2}px`;
+      this.circle.style.backgroundColor = `${color}`;
+      this.circle.style.left = `${x}px`;
+      this.circle.style.top = `${y}px`;
+      box.appendChild(this.circle);
+    }
+
+
+  }
+
+  class Rect extends Graph {
+    /*
+    * 构造函数可以省略
+    *
+    * 小球:属性 : 大小 小球的颜色 位置
+    *     方法 : 功能 创建小球/随机数/随机颜色/拖拽
+    *
+    * */
+    constructor() {
+      super();
+      /*
+      * 属性 : 小球本身 颜色 位置
+      * */
+      /*大小*/
+      this.r = this.random(10, 100);
+      this.x = this.random(10, 1200);
+      this.y = this.random(10, 500);
+      this.color = this.randomColor();
+      //调用创建小球的方法
+      this.createEl();
+      this.drag(this.rect);
+    }
+
+    /*
+     * 方法 : 功能
+     * */
+
+    /*创建小球*/
+    createEl() {
+      let {r, color, x, y} = this;
+      this.rect = document.createElement('div');
+      this.rect.classList.add('rect');
+      this.rect.style.width = `${this.random(20,100)}px`;
+      this.rect.style.height = `${this.random(20,100)}px`;
+      this.rect.style.backgroundColor = `${color}`;
+      this.rect.style.left = `${x}px`;
+      this.rect.style.top = `${y}px`;
+      this.rect.style.zIndex = '0';
+      box.appendChild(this.rect);
+    }
+
+    random(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+
+
+  }
+
+</script>
+</body>
+</html>

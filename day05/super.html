@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  class Person {
+    constructor(name) {
+      this.name = name;
+      console.log(this.name);
+    }
+
+    getName() {
+      console.log('父类的getName');
+    }
+  }
+
+  class Man extends Person {
+    constructor(props) {
+      super(props);
+
+    }
+    getName() {
+      console.log('子类的getName')
+    }
+
+    getSuperName() {
+      super.getName();
+
+      console.log(Person.prototype.getName === super.getName);
+
+    }
+
+  }
+
+  new Man('小明').getSuperName();
+
+
+
+
+</script>
+</body>
+</html>

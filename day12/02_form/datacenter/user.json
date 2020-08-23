@@ -1,0 +1,22 @@
+[
+  {
+    "username": "zhangsan",
+    "password": "123",
+    "verification": ""
+  },
+  {
+    "username": "李四",
+    "password": "123456",
+    "verification": "333"
+  },
+  {
+    "username": "王五",
+    "password": "123456",
+    "verification": "333"
+  },
+  {
+    "username": "赵柳",
+    "password": "123456",
+    "verification": "333"
+  }
+]

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    body{
+      margin: 150px;
+    }
+    #canvas{
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+  let _ = {
+    random: (min, max) => {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+  };
+
+  const canvas=document.getElementById('canvas');
+  const ctx=canvas.getContext('2d');
+  canvas.width=1000;//注意这里不能用css直接定义宽和高
+  canvas.height=600;
+  class Ball{ //球类
+    constructor(x,y,color){
+      this.x=x;
+      this.y=y;
+      this.color=color;
+      this.r=50;//初始半径为50
+    }
+    render(){//绘制小球
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
+      ctx.fillStyle=this.color;
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  class MoveBall extends Ball{//MoveBall继承Ball类
+    constructor(x,y,color){
+      super(x,y,color);//此处必须调用基类，否则编译会报错
+
+      //定义变量，正负表示方向
+      this.dX=_.random(-5,5);
+      this.dY=_.random(-5,5);
+      this.dR=_.random(1,3)
+    }
+    upDate(){
+      this.x+=this.dX;
+      this.y+=this.dY;
+      this.r-=this.dR;
+      if(this.r<0){
+        this.r=0;
+      }
+    }
+  }
+  let arrBall=[];//小球对象的数组，鼠标移动时创建MoveBall对象插入数组，每50ms遍历数组，绘制小球，同时让小球的半径和位置发生变化，直至小球半径为0
+  let arrColor=['red','pink','blue','white','green','orange'];//自定义的小球颜色
+  canvas.addEventListener('mousemove',function (e) {
+    arrBall.push(new MoveBall(e.offsetX,e.offsetY,arrColor[_.random(0,arrColor.length-1)]))
+    if (arrBall.length > 200) {
+      arrBall.shift();
+    }
+  });
+  setInterval(function () {
+    //每次执行函数时都要清理canvas，否则小球消失的痕迹都会留在canvas里
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < arrBall.length; i++) {
+      arrBall[i].render();
+      arrBall[i].upDate();
+    }
+  }, 50);
+
+
+</script>
+</body>
+</html>

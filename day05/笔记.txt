@@ -1,0 +1,43 @@
+
+回顾:
+  拖拽+面向对象
+
+  面向对象
+   写法:
+    class 类{
+      构造函数: 属性
+
+      方法:功能
+    }
+
+   灵魂:this
+   this的指向问题:
+    es5函数:谁调用就指向谁,箭头函数:往上找
+
+  数组常用的方法 es6中
+
+  es5:
+    splice pop  push reverse sort shift unshift indexOf concat join
+
+  es6:
+    静态方法  Array.方法  Array.from() 转换成数组 伪数组 比如 字符串 、
+            Array.is() 判断是不是数组 {} []  null
+    成员方法  arr.方法
+
+      arr.forEach()
+      arr.map()
+      arr.find()
+      arr.findIndex()
+      arr.every()
+      arr.some()
+      arr.reduce()
+      arr.filter()
+
+  下节课 :
+    1:Promise  同步  异步
+    2:Object常用的方法
+
+    周一:测验一下掌握情况 100分满分
+
+  node :
+

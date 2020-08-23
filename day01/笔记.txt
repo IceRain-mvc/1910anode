@@ -1,0 +1,60 @@
+
+node
+  前后端:
+
+  前端:
+    web   : html+css+js  静态网站
+    移动端 : app/webapp
+
+    //动态: 实时变化
+    //静态: 写死的
+    <div>新闻标题</div>
+    <div>新闻内容</div>
+
+  es6 : js 新的版本规范  es5
+
+  后端 : node
+  前端和后端  交互
+
+  重点:
+    1:es6
+    2:node
+    3:gulp
+    4:express
+
+  1:讲完知识点 提问 开麦 一定要开麦
+  2:要有回应
+  3:作业 群里
+  4:自习时间 下午2点-6点  分组 会议室
+  5:每天晚上 7-9点 讨论
+
+
+  小崔老师
+
+  let const
+  变量的解构赋值
+  展开运算符
+  类 实例 原型
+  class super this
+  导入导出
+  promise
+  generator
+  async await
+
+  数组的新方法
+  以前的方法 :push splice unshift shift ...
+  新方法 : map  forEach some filter every ...
+
+  集合 Set  Map
+  装饰器
+
+
+
+
+
+
+
+
+
+
+

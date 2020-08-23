@@ -1,0 +1,66 @@
+
+
+回顾:
+  node:
+    javascript的运行环境
+    服务器
+
+  js:共有3部分
+    1.ecmascript
+    2.dom
+    3.bom
+  js:1:脚本语言 html
+     2:放在node 中就叫服务器开发
+      js:只支持js中的ecmascript
+      node中的js 一旦报错 就出现在小黑板(终端)
+  模块化:
+    AMD  CMD  CommonJS  es6模块化
+  node中有一些自带的模块 CommonJS
+    比如 require  exports
+    只能放在node中运行
+
+  服务器
+    放在一个固定的地方 常年运行 通过地址就可以访问服务器 得到回应
+  客户端
+    应用程序 C端(client)
+    浏览器   B端(Bowser)
+  B/S模型: 浏览器 和 服务器 之间的交互
+  C/S模型: 应用程序和服务器 之间的交互
+  IP地址: 可以通过IP地址定位到计算机
+    www.baidu.com 万维网  61.135.169.121:443
+  端口:定位到某一个应用程序
+  终端: 小黑板
+
+  node :没有页面 全部都是通过终端来运行
+    node 文件.js
+    node 当做V8来用  dom  bom去掉  又加了 模块化
+    > let a = 10;
+    > let b = 20
+    > a+b
+    30
+
+  node中有自己的模块
+     http fs path os url urlString
+
+  http: 搭建一个服务器
+  具体:
+    require():通过这种方式就可以加载一个模块 require是一个方法 作用就是记载一个模块的
+
+    const http = require('http')// http 就是http模块暴露出来的对象
+    //http 有很多操作方法
+    request:接收请求
+    response:响应数据
+    const server = http.createServer((request,response)=>{})
+    //response 有两个方法
+    //response.write('hdsalfh')
+    //response.end()
+    //开启服务 实时接收客户端响应
+    server.listen(2002)
+
+    node中提供了一些核心模块
+      1. 不用下载
+      2. 拿来就可以用  let fs = require('fs')
+
+    fs : file system : 文件系统
+      作用:操作文件
+    http : 开启服务器

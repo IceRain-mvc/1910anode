@@ -1,0 +1,65 @@
+
+
+回顾:
+  搭建服务器
+  表单 服务器如何接受数据
+  网页 : 公司的介绍
+      XXX后台管理 商品/统计
+      后台 === 服务器
+
+  服务器:提供数据
+    1:开启服务
+    2:浏览器请求(B端)/客户端(C端) 通过地址+端口号的方式 向服务器请求数据
+      get   地址?name=123&aaa=456
+        优点:速度快  只会请求一次(HTTP协议里面的TCP协议 请求头HEAD+请求体BODY)
+        缺点:数据量比较小
+      post  地址  + 请求体
+        优点:可以提交的数据量很大
+        缺点:速度慢  会请求两次(HTTP协议里面的TCP协议 请求头HEAD 一次  请求体BODY 一次)
+      option ..
+
+    3:前端请求的手段
+      web标签
+        <link href=''/>
+        img src
+        script src
+        a href
+        ...
+      浏览器地址 发送请求
+      form  : 刷新页面  点击按钮 都会跳转
+        action = '地址' //   ./xx/a.html
+        同一个服务器 : 同域
+        /register === http://localhost:8080/register
+        不同服务器 : 跨域
+      ajax :  局部刷新
+
+
+  问题:
+    1:做的事情是什么?
+    2:模块化 : 干什么的? 拆成各个模块
+      模块-->文件 可以有多个方法
+      导出-->node : module.exports  exports
+      导入-->       require('http')//node自带的 http
+      导入-->       require('./utils/fsUtils.js')//自己的包
+      导入-->       require('lodash/jquery/vue')//第三方包   node_modules
+    3: JSON... 错  JSON.parse('字符串')
+
+
+
+  ajax : 阿贾克斯
+    前端 高管 小姨子
+
+    传奇 注册
+    传统的form 请求 会出现一个问题 会刷新页面
+
+    ajax : 请求  局部刷新
+
+    // vue 单页面应用: 只有一个html
+
+
+
+
+
+
+
+

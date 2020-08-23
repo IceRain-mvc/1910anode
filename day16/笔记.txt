@@ -1,0 +1,77 @@
+
+
+回顾:
+  npm : node package manager node的包管理工具
+    实现某些功能 比较复杂
+    下载一个包 npm install packageName -S / -D
+    提高下载速度 : npm config set registry https://registry.npm.taobao.org
+
+    全局安装 : C:文件夹  提供了命令  比如 express-generator  xxx-cli 用的时候比较少
+    局部安装 : 用的最多  let a = require('包的名字')  a.xxx()
+
+    npm uninstall 包的名字
+    npm uninstall 包的名字 -g
+
+  babel  白包
+    es6语法很高效  class 不是所有浏览器都支持
+    babel : 将es6转换成es5
+
+    执行命令的方式 执行转码
+
+    webpack
+
+
+  es6:语法:
+    模块化
+    导出
+      export : 关键字
+      export 变量/{name,age}
+      export default
+
+      和node不一样的地方 export 和 export default 可以共存
+    导入"
+      import from es6中导入的关键字
+      import 变量名字 from '路径'
+
+    如果想使用es6中的模块化 需要用到的插件
+      @babel/register : 包 需要引入
+      插件:
+      plugins:['@babel/plugin-transform-modules-commonjs']
+
+
+
+  node 模块化 CommonJs
+    导出:
+      1) exports.xxx = xxx
+      2) module.exports = 方法/变量/对象
+
+    导入:
+      1) let {}/变量 = require('自己的包(路径)/自带的包(不加路径)/第三方包(不需要加路径)')
+
+
+express:
+  node 搭建一个服务特别麻烦 : 静态资源 json接口
+  也是一个node的第三方模块
+
+  express快速搭建一个服务器
+
+
+作业:
+  1:babel 常用插件 需要下载哪些东西 每个东西是干嘛的
+  2:es6 的 模块化
+    A模块 父类
+    B模块 子类 继承父类
+
+    C模块 随机数的方法
+    在B模块中使用
+
+  3:express 搭建一个服务器 步骤
+
+  4:周末的作业 根据原型图实现响应功能
+    后台  express
+    前端  h5+移动端+ajax
+    代码  es6的代码
+    服务器的模块  es6的模块
+
+
+

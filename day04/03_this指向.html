@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  function fn(...args) {
+    console.log(this, args);
+  }
+
+  /*
+  * fn 放在对象中 对象.fn
+  * */
+
+  /*
+  * 改变this指向
+  * 函数.call()
+  *
+  * call
+  *   可以改变this指向 (参数1:想改变成的this, 后面的参数 继续写)
+  * apply
+  * bind
+  *
+  * */
+  let arr = [1, 2, 3];
+  fn.call(arr, '小耿', '小杨', '小候',);
+
+
+  /*
+  * call 可以判断类型
+  *
+  * 对象.原型.toString.call()  改变toString里面的this指向
+  * Object.prototype.toString.call(null)
+  * */
+
+  /*
+  * 应用 验证准确的数据类型
+  * // target : Array  Object  Null
+  * */
+
+  /*
+  *
+  * const isArray = isType("Array");
+    const isObject = isType("Object");
+    const isRegExp = isType("RegExp");
+    const isNull = isType("Null");
+    console.log(isArray({}));
+  *
+  *
+  * */
+
+  function isType(target) {//Array Object
+    //验证的值
+    return function (type) {//数组 []  {}  newDate()
+      // console.log(`[object ${target}]`);//[object Array]
+      // console.log(Object.prototype.toString.call(type));
+      // Object.prototype.toString.call([]) 数组 : [object Array]  对象[object Object]
+      return Object.prototype.toString.call(type) === `[object ${target}]`
+    }
+
+  }
+
+  /*
+  * 验证引用类型 : 引用类型 typeof 都是object
+  * */
+  const isArray = isType('Array');
+  const isObject = isType('Object');
+  const isRegExp = isType('RegExp');
+  const isNull = isType('Null');
+  const isDate = isType('Date');
+
+
+  console.log(isArray({}));
+  console.log(isObject([]));
+  console.log(isDate(new Date()));
+  console.log(isNull({}));
+  console.log(isRegExp(/\.js$/));
+
+
+</script>
+</body>
+</html>

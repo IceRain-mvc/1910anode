@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+<!--  <script src="http://localhost:3000/js/request.js"></script>-->
+  <script src="js/request.js"></script>
+</head>
+<body>
+<div>
+  <h1>登录</h1>
+  <input type="text" id="username">
+  <input type="text" id="password">
+  <input type="button" id="login" value="登录">
+  <br>
+  <a href="/register.html">注册</a>
+</div>
+
+<script>
+
+  /*
+  * 如果登录成功
+  *   用ajax发出一个请求
+  *     成功
+  *     跳转到首页
+  *     失败
+  *
+  *
+  * */
+
+  login.onclick = function () {
+    //同域
+    // request.post('http://localhost:3000/login');等价于
+    request.post('/login',
+      {
+        username: username.value.trim(),
+        password: password.value.trim()
+      },
+      function (result) {
+        if (result.code === 1) {
+          alert(result.msg);
+          location.href = '/home.html';
+        } else {
+          alert(result.msg);
+        }
+      });
+
+  }
+</script>
+</body>
+</html>

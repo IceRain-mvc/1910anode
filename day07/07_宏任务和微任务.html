@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+
+  console.log(1);
+  setTimeout(() => {
+    console.log(2);
+  }, 0);
+  console.log(3);
+  // console.log(4);
+
+  new Promise(resolve => {
+    console.log(5);
+    setTimeout(() => {
+      // console.log();
+      resolve()
+    }, 0)
+  }).then(res => {
+    console.log(4);
+  });
+  console.log(6);
+
+</script>
+</body>
+</html>

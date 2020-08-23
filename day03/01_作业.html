@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // window.value = 0;
+/*  var obj = {
+    value: 0,//属性
+    fn: function () {
+      var f = function () {
+        this.value++
+      };
+      f();
+    }
+  };
+  obj.fn();
+  console.log(obj.value);*/
+
+
+  var obj = {
+    value: 0,//属性
+    fn: function () {
+      var f = () => {
+        this.value++
+      };
+      f();
+    }
+  };
+  obj.fn();
+  console.log(obj.value);
+</script>
+</body>
+</html>

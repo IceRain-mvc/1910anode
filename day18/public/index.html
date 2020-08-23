@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/request.js"></script>
+  <title>Title</title>
+</head>
+<body>
+<div>
+
+  <!--
+    get 请求
+  -->
+
+  <!--
+    post请求
+  -->
+
+  用户名<input type="text" id="username">
+  <br>
+  密码<input type="text" id="password">
+
+  <br>
+
+  <button id="btnLogin">登录</button>
+  <button id="shop">购物</button>
+
+
+</div>
+
+<script>
+  btnLogin.onclick = function () {
+    let name = username.value.trim();
+    let pwd = password.value.trim();
+    if (!username || !password) {
+      alert('请填写完整信息');
+      return
+    }
+    //发送请求
+    $request.post('/login', {username: name, password: pwd}, (res) => {
+      // console.log(res)
+      if (res.code === 1) {
+        alert('登录成功');
+        window.open('/home.html');
+      } else {
+        alert('登录失败');
+      }
+    });
+
+    /* const fn = (res) => {
+       // console.log(res)
+       if (res.code === 1) {
+         alert('登录成功');
+         window.open('/home.html');
+       } else {
+         alert('登录失败');
+       }
+     }
+
+
+     */
+  };
+
+  shop.onclick = function () {
+    location.href = '/shop.html';
+
+  }
+
+</script>
+
+</body>
+</html>

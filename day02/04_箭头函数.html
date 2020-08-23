@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  /*
+  * 箭头函数: 就是一个函数  这个东西是 es6提供的
+  * */
+
+  function fn(num) {
+    console.log(num);
+  }
+
+  fn(10);
+
+  /*
+  * 好处: 简化代码
+  * 声明一个函数名字 = 小括号 参数  简写:只有一个参数的时候 小括号可以省略
+  * => : 后面跟着的就是函数体 有多行代码的时候 后面需要有大括号
+  *      {}可以省略  代码只有一行  相当 执行之后 的返回结果 return 可以省略
+  *      {}不省略的时候 以前函数function里面怎么写 现在就怎么写  return 不能省略
+  * */
+
+  const fn1 = () => console.log(1);
+
+  const fn2 = num => console.log(1 + num);
+
+  const fn3 = (num,num2) => console.log(1 + num+num2);
+
+  const fn4 = (n1, n2) => n1 + n2;
+
+  const fn5 = (n1, n2) => {
+    n1 = n1 + 20;
+    n2 = n2 * 40;
+
+    return n1 + n2;
+  };
+
+  console.log(fn5(21, 33));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+
+
+1:面向对象
+  es5的面向对象
+    //Person 类 构造函数
+    function Person(name){
+      this.name = name
+    }
+
+  es6:面向对象 还有1-2%的api不太支持 --> 最终浏览器 会将es6代码转换成es5代码
+             babel  webpack
+
+  class 类 {
+    构造函数(参数){
+      super()// 调用父类的构造函数
+      this.name = ''
+    }
+
+    方法(){
+
+    }
+  }
+
+  类有公共功能 创建一个父类
+  子类 extends 父类{
+
+  }
+
+
+
+
+

@@ -1,0 +1,40 @@
+
+
+回顾:
+  es 模板字符串
+  string string = `${变量名/表达式/函数有返回值}范德萨发`
+
+
+  this   : 类的对象  let obj =  new Object()  // this ===obj //true
+      //this的指向 谁调用这个函数this就指向谁  fn(){this}  obj.fn
+  super  :  es5 基本不用 es6:重新认识
+      //super.abc  Object.prototype.abc
+
+  类 实例 原型
+    new Date('参数') // new 后面跟着的这个东东就是类
+    既可以称为构造函数又可以称为类  类===构造函数
+
+    类===构造函数
+
+    实例 = new Date()
+
+    实例.隐式原型 === 类.显示原型
+
+    obj.__proto__ === Object.prototype
+
+  箭头函数:
+
+    1:写法更简单
+      function aa(){}
+
+      let aa = ()=>如果只有一行代码 可以不写大括号
+      let aa = a =>如果只有一行代码 可以不写大括号 一行代码的执行结果直接当做返回值
+      let aa = ()=>{return } //返回值
+      参数只有一个 ()可以省略
+
+    2:this指向  剪头函数 没有this  一旦出现this 就会向上级找
+
+  作业 :
+    1 : 课堂代码 敲3遍
+    2 : 实现一个拖拽的功能
+    3 : 小分页

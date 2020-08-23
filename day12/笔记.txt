@@ -1,0 +1,43 @@
+
+考试 :
+  靳晓迪
+  耿铁洸
+
+  邵婧
+
+回顾:
+  path:
+    路径的处理
+    path.join(路径,路径,路径,'../',...)  拼接到一起
+
+    stat = fs.statSync(path)
+
+    stat.isFile()
+
+  //http://localhost:8080/index.html
+  //http://localhost:8080/index.css
+  //http://localhost:8080/aaa?name=aaa&age=bbb
+  //?wd=宝贝&rsv_spt=1  参数  可以传到后台
+
+  高内聚 低耦合
+
+  - querystring node自带的模块
+    解析传递过来的参数  let  obj = qs.parse(传过来的参数)
+  - form
+    input 属性 name='键'  请求 放到 请求体:键 = 值  method = 'get/post'
+  - 接口封装
+    接收请求 不同的接口放到不同的方法里面操作
+    如果找不到 : 返回一个404
+  - fs模块
+    将前端传递到服务器的数据 存起来 先读  后写
+
+
+  1:先照着敲 大概的屡屡思路  不明白 为什么 先注释
+  2:理解的代码 按照自己的思路
+  3:理解全部  默写
+  4:活学活用
+
+
+
+
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul id="list"></ul>
+<script>
+  let t1 = new Date().getTime();
+  console.log('页面渲染之前', t1);
+
+  for (let i = 0; i < 1000; i++) {
+    let oLi = document.createElement('li');
+    oLi.innerHTML = i;
+    list.appendChild(oLi)
+  }
+  let t2 = new Date().getTime();
+
+  //页面是没渲染
+  console.log('循环结束后用时:', (t2 - t1));
+
+  setTimeout(() => {
+    let t3 = new Date().getTime();
+    console.log('异步执行结束后的用时:', (t3 - t1));
+  }, 0);
+
+  new Promise(resolve => resolve()).then(res=>{
+    let t3 = new Date().getTime();
+    console.log('异步(微任务)执行结束后的用时:', (t3 - t1));
+  })
+
+  //同步 --> 页面渲染 --> 宏任务的异步代码
+
+
+  // console.log(1);
+  //
+  // //
+  // setTimeout(() => {
+  //   console.log(2);
+  // }, 0);
+  //
+  // console.log(3);
+
+</script>
+</body>
+</html>

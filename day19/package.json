@@ -1,0 +1,21 @@
+{
+  "name": "day19",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.0",
+    "@babel/register": "^7.9.0",
+    "express": "^4.17.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0"
+  }
+}

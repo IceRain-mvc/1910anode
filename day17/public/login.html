@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/request.js"></script>
+</head>
+<body>
+  <div>
+    用户名: <input type="text" id="username">
+    密码: <input type="text" id="password">
+    <button id="btnLogin">登录</button>
+
+
+  </div>
+
+  <script>
+    btnLogin.onclick = function () {
+
+      //发送请求 如果登录成功 用户名存储起来
+      // request.get(`/login?username=${username.value}&password=${password.value}`, (res) => {
+      //
+      //   if (res.code === 1) {
+      //     localStorage.setItem('name', username.value);
+      //     location.href = '/test.html';
+      //   } else {
+      //     alert(res.msg);
+      //   }
+      // });
+
+      request.post(`/login`,{username:`${username.value}`,password:`${password.value}`}, (res) => {
+
+        if (res.code === 1) {
+          localStorage.setItem('name', username.value);
+          location.href = '/index.html';
+        } else {
+          alert(res.msg);
+        }
+      });
+    }
+
+  </script>
+</body>
+</html>

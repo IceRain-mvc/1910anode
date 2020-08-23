@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/request.js"></script>
+</head>
+<body>
+
+<div>
+  <ul id="show"></ul>
+  <h3>购买记录</h3>
+  <ul id="recording"></ul>
+  <button id="allChecked">全选</button>
+  <button id="buy">购买</button>
+  <p id="total"></p>
+</div>
+
+<script>
+  window.onload = function () {
+    $request.get('/getList', function (res) {
+      console.log(res);
+      show.innerHTML = res.data.map((item, index) => {
+        return `<li>
+          <input type="checkbox" name="shopList" id="shop${index}"/>
+          <label for="shop${index}">
+          ${item.id}.&nbsp;${item.title}&nbsp;${item.price}
+          </label>
+          </li>`
+      }).join('');
+
+      //点击事件 -- 异步
+      //全选的功能
+      //点击购买 发送给服务器
+
+      let shopListDom = document.getElementsByName('shopList');
+      allChecked.onclick = function () {
+        //伪数组  .length
+        for (let i = 0; i < shopListDom.length; i++) {
+          let item = shopListDom[i];
+          item.checked = true;
+        }
+      };
+
+      //购买 : 发送一个请求 --> express发送请求
+      buy.onclick = function () {
+        //发送一个post请求 实现购买
+        //res.data 能拿到的
+        //shopListDom[i].checked 当前选项是否选中
+
+        let checkedData = res.data.filter((item, index) => {
+          return shopListDom[index].checked
+        });
+
+        $request.post('/buy', {params: checkedData}, function (res1) {
+          // console.log(res.params);
+          recording.innerHTML = res1.params.map((item, index) => {
+            return `<li>
+          ${item.id}.&nbsp;${item.title}&nbsp;${item.price}
+          </li>`
+          }).join('');
+        });
+      };
+
+      let totalPrice = 0;
+
+      //总价
+      for (let i = 0; i < shopListDom.length; i++) {
+        shopListDom[i].onchange = function () {
+          //遍历哪一个选中了 选中的价格 累加
+          totalPrice = 0;
+          for (let j = 0; j < shopListDom.length; j++) {
+            if (shopListDom[j].checked) {
+              totalPrice += res.data[j].price;
+            }
+          }
+          total.innerHTML = totalPrice.toFixed(2) + "";
+        }
+      }
+
+    });
+  }
+
+</script>
+</body>
+</html>

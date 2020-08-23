@@ -1,0 +1,53 @@
+
+回顾:
+  reduce:参数 :
+  arr.reduce((prev,next)=>{
+    console.log()//prev : 第一次 数组第一个元素 第二次:和返回值有关
+    return prev
+  })
+
+
+  1:promise
+  2:object es6中新增的语法
+
+  3:node
+    npm
+    node
+    模块化
+  4:node常用的模块
+    http
+    fs
+    url
+    path
+    ...
+  5:文件操作
+  6:网络操作
+  7:gulp
+
+  8:express
+  小案例
+
+
+  js执行过程
+
+
+
+1、PM: Product Manager，
+    产品经理，又称品牌经理。举凡产品从创意到上市，所有相关的研发、调研、生产、编预算、广告、促销活动等等，都由产品经理掌控。
+
+2、RD: Research and Development engineer，
+    研发工程师，对某种不存在的事物进行系统的研究和开发并具有一定经验的专业工作者,或者对已经存在的事物进行改进以达到优化目的的专业工作者。
+3、QA: Quality Assurance，
+    品质保证。QA的主要职责就是质量保证工作。
+
+4、OP: Operator，
+    操作员，管理员。
+
+遇到的问题
+  需求方面
+  报错 打断点
+      问同事
+      canvas 画出来 + 图片优化 + 上传图片
+      封装函数
+
+https://live.staticflickr.com/6192/6097693649_aa0c244a45_k.jpg

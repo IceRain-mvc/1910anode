@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/request.js"></script>
+  <style>
+    #app {
+      transition: all 1s linear;
+    }
+
+    #model {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, .5);
+      display: none;
+
+    }
+
+    #model #content {
+      position: absolute;
+      top: 25%;
+      background-color: #ffffff;
+      height: 200px;
+      width: 300px;
+      text-align: center;
+      left: 25%;
+      /*transform: rotate(360deg);*/
+      /*transition: all 1s linear;*/
+    }
+
+    #model #content div {
+      text-align: center;
+      margin: 10px;
+    }
+
+    .imgHead {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+  </style>
+
+</head>
+<body>
+<div id="app">
+  <button id="addUser">添加用户</button>
+
+
+  <div id="model">
+    <div id="content">
+      <div><span>用户名:</span><input type="text" id="username"></div>
+      <div><span>电话:</span><input type="text" id="phone"></div>
+      <div><span>头像:</span><input type="text" id="img"></div>
+
+      <button id="cancel">取消</button>
+      <button id="sure">确定</button>
+    </div>
+  </div>
+
+  <div id="show">
+
+  </div>
+</div>
+
+<script>
+  addUser.onclick = function () {
+    model.style.display = 'block';
+
+  };
+  model.onclick = function () {
+    model.style.display = 'none';
+  };
+  cancel.onclick = function () {
+    model.style.display = 'none';
+  };
+  content.onclick = function (e) {
+    e.stopPropagation();
+  };
+
+
+  function getAllUser() {
+    //显示到页面上
+    $request.getPromise('/api/getUsers').then(res => {
+      show.innerHTML = res.map(item => `
+      <img class="imgHead" src="${item.img}"/>
+      <span>${item.username}</span>
+      <span>${item.phone}</span>
+      <button>删除</button>
+      <button>修改</button>
+      <br>
+      `).join('');
+    })
+  }
+
+  getAllUser();
+  sure.onclick = function () {
+    model.style.display = 'none';
+    //ajax请求
+    $request.postPromise('/api/addUser',
+      {username: username.value, img: img.value, phone: phone.value}).then((res) => {
+      if (res.code === 1) {
+        alert(res.msg);
+      } else {
+        alert(res.msg);
+      }
+    });
+    getAllUser();
+
+  }
+
+</script>
+</body>
+</html>

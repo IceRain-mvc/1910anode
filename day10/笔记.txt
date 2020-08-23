@@ -1,0 +1,70 @@
+
+回顾:
+  fs模块
+  http模块 + fs
+
+  fs.readFile(文件所在的路径,(err,data)=>{
+    if(err){
+      return;
+    }
+    data:注意 2进制 --> 转换成我们能识别的data.toString()
+  }) 读文件
+  fs.writeFile(路径,内容,(err)=>{
+    if(err){
+      //err 出错:错误对象 不出错 : null
+    }
+  })
+
+
+  http
+
+  request :
+    接收请求:
+       request.url
+       //request.getHeaders
+  response
+    响应给客户端
+      response.write('')//string  buffer:二进制
+      response.end()
+
+  异步:
+    node : 内置的模块 所有的回调都是异步
+    http.createServer(()=>{})//开一个线程
+
+  js是单线程的 : 没有多线程的接口
+    同步 异步(队列)
+  v8内核是多线程的 内置负载均衡
+    fs.readFile(()=>{},0)
+    setTimeout(()=>{console.log(1)},0)
+    setTimeout(()=>{console.log(2)},1)
+    setTimeout(()=>{console.log(3)},2)
+
+
+  1:模块化
+    AMD CommonJS es6的模块化
+
+    服务器 :也需要模块化
+  2:丰富我们的服务器
+  3:ajax form link
+
+  CommonJS
+  node内置的模块  不需要添加路径
+    require('http')
+    require('fs')
+    require('url')
+    require('path')
+
+  自己写的模块 自己添加路径  ./xxx.js  ../xxx.js
+
+
+  1:在B模块中 写一个随机数方法  导出 在a中引入这个方法 并使用 可以传参 得到结果
+  2:相比较两个值得大小 值在a模块中 a引入了b模块  b模块引入了c模块 c模块中有这个 方法 比较两个值大小的方法
+
+
+
+  前后端交互
+    请求的资源 分为两种类型
+    1: 静态资源 html css  js
+    2: json数据  通过ajax请求的 渲染页面
+
+

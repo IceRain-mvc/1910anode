@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  // console.log(this);
+
+  /*
+  * 1:this一般在函数或者 class 类 中 使用
+  * 2:this 指向和 函数的拥有者有关  函数是谁调用的 this就指向谁
+  * 3:同一个函数在不同的环境下执行 可以有不同的效果
+  * 4:只有函数执行的时候 才能得到this的指向
+  *
+  *
+  * super: superMan 超人
+  * this: 指向当前方法所属的实例
+  * super: 指向的父级的原型  实例里面的super指向的 当前实例所属类.prototype
+  *   函数 : 自由
+  *   方法 : 函数属于某个对象
+  *   方法内部super的指向当前函数执行环境(函数所挂载的实例对象)所属的类的原型  父级(类)的原型
+  *
+  * */
+
+  function sayProp() {
+    console.log(this);
+  }
+
+  sayProp();
+
+  const obj = {
+    name: '张三',
+    sayName() {
+      console.log(this.name);
+    },
+    sayProp
+  };
+
+  const obj1 = {
+    name: '李四',
+    sayName() {
+      console.log(this.name);
+    },
+    sayProp
+  };
+
+  //对象和类是什么关系? 类(Object)通过new的方式的到对象
+  //obj2 是属于 类的  Object是父   obj2是子
+  let obj2 = new Object();
+
+  //super
+  let date = new Date();
+
+  obj.sayProp();
+  obj1.sayProp();
+
+
+  //
+  Object.prototype.abc = 123;
+
+  let obj3 = {
+    sayHello() {
+      //super 在方法中是不能打印的
+      console.log(super.abc);
+    }
+  };
+
+  // console.log(obj3);
+  obj3.sayHello();
+
+
+  // Array.prototype.oo = '123';
+  // let arr1 = [2, 3, 4];
+  //
+  // arr1['sayBye'] = function () {
+  //   console.log(super.oo);
+  //
+  // };
+  // arr1['sayBye']();
+
+</script>
+</body>
+</html>

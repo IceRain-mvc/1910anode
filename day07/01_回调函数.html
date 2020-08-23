@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function fnc(fn) {//fn 就叫回调函数
+    //const fn = ()=>{}
+    //fn 是真值  就执行 fn函数
+    fn && fn();
+  }
+
+  console.log('1');
+  fnc(()=>{
+    console.log('Am 回调函数');
+  });
+  console.log('2');
+  fnc();
+
+  /*
+  * 我们自己是不能创建异步的
+  * 只有调用系统api的时候
+  *   比如 setTimeout  ajax  event  promise
+  *
+  * 回调:
+  *   亦可以放在同步里面执行
+  *   也可以放在异步中
+  * */
+
+
+
+
+
+</script>
+</body>
+</html>

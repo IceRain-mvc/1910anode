@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/request.js"></script>
+  <title>Title</title>
+</head>
+<body>
+<div>
+  <h1>Home</h1>
+  <ul id="show">
+
+  </ul>
+</div>
+
+
+<script>
+
+  //页面加载完成后执行的回调
+  window.onload = function () {
+    //发送一个请求
+    $request.get('/list?pageSize=10', function (res) {
+      console.log(res);
+      show.innerHTML = res.data.map((item,index)=>{
+        return `<li>${item.id}.&nbsp;${item.title}&nbsp;${item.price}</li>`
+      }).join('')
+    });
+
+
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/request.js"></script>
+</head>
+<div>
+  <button id="btnGet">get请求</button>
+  <button id="btnPost">post请求</button>
+
+</div>
+<body>
+
+<script>
+  async function sendRequestGet() {
+    let res = await $request.getPromise('/users/list');
+    console.log(res);
+  }
+
+  async function sendRequestPost() {
+    let res = await $request.postPromise('/users/login',{username:'zhang',
+      password: '123'});
+    console.log(res);
+  }
+
+  btnGet.onclick = function () {
+    sendRequestGet();
+  };
+
+  btnPost.onclick = function () {
+    sendRequestPost();
+  }
+
+</script>
+
+
+</body>
+</html>

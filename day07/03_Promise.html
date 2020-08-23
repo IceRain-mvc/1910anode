@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  /*
+  * 为什么要有回调 add(1)(2)(3)(4)
+  *   只有第一个回调执行结束 --> 才能第二个回调
+  *   应用:
+  *   动画  第一个动画执行结束再执行第二个动画
+  *   网络请求(ajax) : 成功  失败
+  *
+  *   什么时候用到回调: 涉及到函数执行顺序的时候
+  *
+  *
+  * promise : 取而代之 : 链式调用
+  *   Promise : 是一个构造函数 用法 都要加new
+  *   new Promise()
+  *
+  * */
+  /**
+   * resolve : 成功的时候执行  resolve(参数)
+   * reject :  失败的时候执行
+   *
+   * 这两个东西 : 都是函数
+   *
+   * 返回值 : promise对象 通过这个对象可以得到成功的结果promise.then() 得到失败的结果promise.catch()
+   *
+   *  promise的出现 : 解决了
+   *    解决的异步的问题之一
+   *      - 过程和结果分开
+   *        过程: 放在new Promise()中  一般在new Promise中一般要做异步的操作
+   *        结果: 等到过程执行结束之后 调用resolve / reject 拿到结果
+   *              只要执行 resolve() 就会调用 promise.then(res=>) 里面的回调 就可以拿到成功的结果
+   *              只要执行 reject() 就会调用 promise.catch(err=>) 里面的回调 就可以拿到失败的结果
+   */
+
+  let flag = true;
+  //执行过程
+  let promise = new Promise((resolve, reject) => {
+    //内部 执行的操作一般是异步的
+    setTimeout(() => {
+      resolve('异步操作')
+    }, 1000);
+  });
+
+  //执行结果
+  promise.then(res => {
+    console.log('成功:' + res);
+  });
+  promise.catch(err=>{
+    console.log('失败');
+  });
+
+
+
+
+</script>
+</body>
+</html>

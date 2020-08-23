@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div>
+  <h1>列表页面</h1>
+</div>
+
+<script>
+  /*
+  * 如果没有登录 跳转到login页面
+  * */
+
+  let name = localStorage.getItem('name');
+  if (!name) {
+    location.href = '/login.html';
+  }
+
+</script>
+</body>
+</html>

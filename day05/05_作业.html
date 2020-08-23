@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  /*var fun = function () {
+
+  };
+  //fun.prototype  === 对象.__proto__
+  fun.prototype = {//内存地址  堆内存(内存地址+引用类型的值)  栈内存
+    info: {
+      name: 'peter',
+      age: 25
+    }
+  };
+  //声明了两个对象
+  var a = new fun();
+  var b = new fun();
+  b.info.name = 'tom';
+  // a.info.name = 'jack';
+  console.log(a.info.name);
+  console.log(b.info.name);
+*/
+
+  // var name = "windowsName";//js垃圾回收机制 及时的清除
+  //
+  // function fn() {
+  //   var name = 'Cherry';
+  //   innerFunction();
+  //   function innerFunction() {
+  //     //this 指向谁
+  //     // console.log(this);
+  //     console.log(this.name);      // windowsName
+  //     console.log(name);
+  //
+  //   }
+  //
+  // }
+  //
+  // fn()
+
+  // var a = {
+  //   name : "Cherry",
+  //
+  //   func1: function () {
+  //     console.log(this.name)
+  //   },
+  //
+  //   func2: function () {
+  //     // console.log(this);
+  //     setTimeout(function () {
+  //       // console.log(this);
+  //       this.func1()
+  //     }.apply(a),100);
+  //   }
+  // };
+  //
+  //
+  // /*
+  // * call 立即执行
+  // * bind
+  // * apply 立即执行
+  // * 只能用在函数的身上
+  // * */
+  // a.func2()            // Cherry
+
+  // var a = {
+  //   name : "Cherry",
+  //   func1: function () {
+  //     console.log(this.name)
+  //   },
+  //   func2: function () {
+  //     setTimeout(  function () {
+  //       this.func1()
+  //     }.call(a),100);
+  //   }
+  // };
+  //
+  // a.func2()            // Cherry
+
+  // var a = {
+  //   name : "Cherry",
+  //
+  //   func1: function () {
+  //     console.log(this.name)
+  //   },
+  //
+  //   func2: function () {
+  //     setTimeout(function () {
+  //       this.func1()
+  //     }.bind(a)(),100);
+  //   }
+  // };
+  //
+  // a.func2()            // Cherry
+
+
+  function Class1(a,b) {
+    //this指向的是 class3
+    this.showclass1 = function(a,b) {
+      // console.log('class1', this);
+      console.log(`class1: ${a},${b}`);
+    }
+  }
+
+  function Class2(a,b) {
+    //指向的是class3
+    this.showclass2 = function(a,b) {
+      console.log(`class2: ${a},${b}`);
+    }
+  }
+
+  // new Class3();
+
+  function Class3(a,b,c) {
+    //不new Class3() this 指向的是window
+    //如果new了  new Class3() this 指向 object
+
+    console.log(this);
+    //把Class3中的this传递到了Class1 和Class2中
+    Class1.call(this);
+    Class2.call(this);
+  }
+
+  let arr10 = [2,2];
+  let demo = new Class3();
+
+  // demo.showclass1(1, 2);
+  // demo.showclass2(1, 2);
+
+  // console.log(this);
+  //this 指向的是谁
+  demo.showclass1.call(this,1); // class1: 1,undefined
+  demo.showclass1.call(this,1,2); // class1: 1,1
+  //window
+  demo.showclass2.apply(this,arr10); // class2: 2,2
+</script>
+</body>
+</html>

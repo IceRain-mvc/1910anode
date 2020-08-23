@@ -1,0 +1,71 @@
+* 靳晓迪
+* 孟令辉
+* 赵坚
+* 杨灿
+* 侯万鑫
+
+回顾:
+  es6 语法
+    let const
+      1:不存在变量提升
+      2:暂时性死区
+      let a = 10
+        function (){
+          a
+
+          let a = 20
+        }
+      3:不允许重复声明
+      4:块级作用域 {}  if(){}  for(){}
+      5:const 本质 :
+        const aa = 123
+        aa = 345
+
+        注意:
+        const arr = [1,2,3]
+        arr = [3,4,5] 报错
+        arr 改变原引用类型不会报错
+        arr.push(1) 不会报错  splice() 不会报错
+
+        const obj = {name:"小丸子"}
+        obj.age = 123
+
+    结构赋值
+      1:数组 let [a,b,c] = arr
+        下标 一一对应
+      2:对象
+        a:简写 : 键和值得名字一样的时候 就可以简写
+          let obj = {
+            a,b,c//a:a, b:b,c:c
+          }
+        b:结构赋值: 原则 键的名字 一一对应
+          let {a} = obj
+
+        c:结构原型方法
+          __proto__ : 对象的隐式原型
+          let {toString} = obj1
+        d:默认值
+            let {key=20} = obj
+        e:起一个新的名字
+            let {a:aa = 20}  = obj
+            aa
+      3:字符串
+        a:和数组解构方式一样  let[a,b,c] = 'fdhjaskfhask'
+        b:也可以按照对象的方式解构
+
+    展开运算符:
+      ...
+
+      1:数组  [...[1,2,3],...[8,9,10,...[10,11,12]]]
+      2:对象   {...obj2,...{nickname:'小三'}}
+      3:函数 参数
+
+    es5 : var  函数  全局
+
+
+    通过打印类的方式 得到类所有的原型方法  Array  String  Object Date
+    通过打印实例的方式 得到实例所属类的所有原型方法
+    比较 实例和类的关系
+    写一个对象 通过这个对象里面的方法 调用super.abc的方式 得到类的原型的属性 Object.prototype.abc
+    写一个案例 感受this的魅力
+

@@ -1,0 +1,4 @@
+[
+  "./src/commons/css/reset.css",
+  "./src/pages/manger/index.css"
+]

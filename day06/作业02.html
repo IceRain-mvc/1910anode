@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    ul>li {
+      margin: 10px;
+      width: 100px;
+      height: 100px;
+      background-color: #2f872f;
+      position: absolute;
+      list-style: none;
+    }
+
+  </style>
+</head>
+<body>
+<input type="text" id="inputValue">
+
+<ul>
+  <li style="left: 0"></li>
+  <li style="left: 110px;background-color: #d14596"></li>
+  <li style="left: 220px;background-color: #2642d1"></li>
+  <li style="left: 330px;background-color: #d13f23"></li>
+  <li style="left: 440px;background-color: #d1bb2b"></li>
+</ul>
+
+<script>
+
+  inputValue.onchange = function () {
+    let obj = new Drag();
+    let value = parseInt(inputValue.value);
+    obj.drag(document.getElementsByTagName('li')[value]);
+  };
+
+
+  class Drag {
+    drag(target) {//想拖拽的dom元素
+      //小球
+      target.onmousedown = function (event) {
+
+        console.log(event);
+        //计算初始位置 方块的初始位置
+        let disX = event.clientX - target.offsetLeft;
+        let disY = event.clientY - target.offsetTop;
+        /*
+        * 鼠标移动事件
+        *   改变小块块的位置
+        * */
+
+        document.onmousemove = function (ev) {
+          target.style.left = `${ev.clientX - disX}px`;
+          target.style.top = `${ev.clientY - disY}px`;
+        };
+
+        /*
+        * 鼠标抬起事件
+        *   清除拖动状态
+        * */
+
+        document.onmouseup = function () {
+          document.onmousemove = null;
+          document.onmouseup = null;
+        }
+      }
+    }
+
+  }
+
+
+</script>
+</body>
+</html>

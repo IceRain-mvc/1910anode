@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    #canvas {
+      background-color: #2d2d2d;
+    }
+
+  </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+  /*
+  * 鼠标移动
+  * 扩散效果
+  *
+  * 1)区域  画布  <canvas/> 背景
+  * 2)绘制小球 随机颜色
+  * 3)鼠标移动
+  *
+  * */
+
+
+  //canvas 三个功能
+  //1:getContext('')  获取context对象
+  //2:height
+  //3:width
+
+  //ctx 用来绘制的
+
+  class Ball {//小球的类
+    constructor(x, y, color) {
+      this.x = x;
+      this.y = y;
+      this.color = color;
+      this.r = 50;
+
+      this.canvas = document.getElementById('canvas');
+      this.ctx = this.canvas.getContext('2d');
+
+      this.canvas.width = 1200;
+      this.canvas.height = 600;
+    }
+
+    render() {
+      this.ctx.save();
+      this.ctx.beginPath();//1:开始绘制
+      this.ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);//2:画一个小球
+      this.ctx.fillStyle = this.color;//3:填充颜色
+      this.ctx.fill();//4:颜色生效
+      this.ctx.restore();//5:
+    }
+
+    random(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    randomColor() {
+      const letters = ['a', 'b', 'c', 'd', 'e', 'f'];
+      const strs = [...letters];
+      for (let i = 0; i < 10; i++) {
+        strs.push(i + '');
+      }
+      let i = 0;
+      let colorStr = '#';
+      while (i < 6) {
+        //随机的下标
+        let index = this.random(0, strs.length);
+        colorStr += strs[index];
+        i++;
+      }
+      return colorStr;
+    }
+
+  }
+
+  /*  let ball = new Ball(100, 100, 'pink');
+    let ball1 = new Ball(200, 300, 'green');
+    ball.render();
+    ball1.render();*/
+
+  //创建小球的移动类  MoveBall
+
+  class MoveBall extends Ball {
+    constructor(x = 0, y = 0, color = 'black') {
+      super(x, y, color);
+      //多个小球 --> 数组  鼠标移动的时候 向数组中添加小球
+      //push(new MoveBall(位置))
+
+      this.arrBall = [];
+      this.dX = this.random(-5, 5);
+      this.dY = this.random(-5, 5);
+      this.dR = this.random(1, 3);
+      this.listen();
+    }
+
+    listen() {
+      //监听鼠标的移动
+      // this.canvas.onmousemove = (ev) => {
+      //
+      // };
+
+      this.canvas.addEventListener('mousemove', event => {
+        console.log(this.arrBall.length);
+        //new MoveBall() 只能放在类外面
+        this.arrBall.push(new MoveBall(event.offsetX, event.offsetY, this.randomColor()));
+        //只保留200个小球
+        if (this.arrBall.length > 200) {
+          arrBall.shift();
+        }
+        /*
+        * offsetX: 297
+          offsetY: 587
+        *
+        * */
+      });
+
+      /*
+      * 每隔50ms 渲染一次
+      * */
+
+      setInterval(() => {
+        //清空画布
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        //渲染
+        // this.arrBall.forEach(item => {
+        //   item.render();
+        //   item.updateBall();
+        // });
+
+        for (let i = 0; i < this.arrBall.length; i++) {
+          this.arrBall[i].render();
+          this.arrBall[i].updateBall();
+        }
+      }, 50);
+    }
+
+
+    /*
+    * 更新方法
+    * */
+    updateBall() {
+      //不停地改变小球的位置 半径
+      this.x += this.dX;
+      this.y += this.dY;
+      this.r -= this.dR;
+
+      if (this.r < 0) {
+        this.r = 0;
+      }
+    }
+
+
+  }
+
+  // new MoveBall(100, 200, 'blue').render();
+
+
+  let moveBoll = new MoveBall();
+
+
+</script>
+</body>
+</html>

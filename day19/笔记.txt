@@ -1,0 +1,39 @@
+
+回顾:
+  express + 前端
+  小功能
+
+  前后端交互  前端发送请求 --> 后端接收请求
+
+  如果是获取数据 get方式请求
+  如果提交数据  post请求
+
+  express简化  node写的特别多的代码
+
+1:继续封装ajax 回调
+
+  $request.get()
+  $request.post()
+
+  async function(){
+    let res = await $request.get()
+  }
+
+
+  封装ajax步骤: 网络请求
+    1:创建ajax对象
+    2:ajax.open('GET',url,true) //打开一个连接
+    3:ajax.send(null/JSON.stringify({name:124,age:123}))
+    4:监听状态 4
+
+//把node_modules 都删了  重新npm i 下载
+
+2:express 封装
+  小案例  前端和后台交互 四个字概括 增删改查(具体的业务逻辑 熔断...)
+  //设置淘宝镜像
+
+
+
+
+
+

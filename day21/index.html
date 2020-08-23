@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  let obj1 = {a: 1};
+  let obj2 = {b: 2};
+  let obj3 = {c: 3};
+
+  //... 展开运算符
+  let obj = {...obj1, ...obj2, ...obj3, ...{aa: 123}, ...[1, 2, 3]};//不确定性
+
+  console.log(obj);
+
+  //合并对象 1:接收参数 至少是两个 而且必须是对象
+  let obj4 = Object.assign(obj1, obj2, obj3);
+
+  //2: 会把第二个以后的对象的属性合并到第一个对象身上 , 但是这些被合并的对象不会被改变
+  //并且会把第一个参数作为assign方法的返回值  obj4 === obj1 // true
+
+  //Array.is() 判断是不是数组
+  //Object.is()有两个参数  === 效果是完全一样的 判断两个值是否相等
+  // Object.is 可以判断NaN是否相等
+  //不能判断引用类型 地址
+
+
+  //Object.keys(静态方法)  遍历对象的
+  //遍历一个 对象 for in
+  //返回值 是一个数组 装的是 key
+  Object.keys(obj4).map(item => {
+    console.log(obj4[item])
+  });
+
+
+  //Object.entries(不常用)
+  //把对象变成二位数组  [[key,value],[key,value]]
+
+  // 创建一个新的对象 这两个并不相等, 改变原有对象的属性的时候 新的对象也会跟着变化
+  // 拷贝  深拷贝  浅拷贝
+  let person = {name: 'zhang'};
+  let person1 = Object.create(person);
+  //a:{a:1} === b:{a:1}
+  //浅拷贝 两个对象 不相等 但是 改变其中一个值另一个对象的值也会跟着变
+  //深拷贝 两个对象 不相等 但是 改变其中一个值另一个对象的值不会跟着改变
+
+  //递归函数
+
+  console.log(person1.name);
+
+  person.name = 'li';
+
+  console.log(person1.name);
+  console.log(person === person1);
+
+  //思考
+  let target = {a: {b: 'c', d: 'e'}};
+  let source = {a: {b: 'hello'}};
+  Object.assign(target, source);
+  console.log(target);//target 打印什么?  {a: {b: "hello"}}  覆盖
+
+
+
+
+
+
+</script>
+</body>
+</html>

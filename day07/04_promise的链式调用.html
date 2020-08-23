@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  /*
+  * 定时器1执行结束 执行定时器2  结束 执行定时器3
+  * 回调地狱能解决一件什么事? 等待前一个回调执行结束 再执行下一个回调 异步的顺序问题
+  *
+  * 链式调用promise : 把回调地狱的蹭蹭嵌套关系 变成 .then
+  *
+  *   1:把回调铺平了
+  *   2:结果和过程分开了
+  *   3:用回调地狱 需要自己处理失败
+  *     用promise 处理失败 直接 用reject() 就会执行 promise.catch()的回调
+  * */
+
+  // function setTime(time,success,fail) {
+  //   setTimeout(() => {
+  //     console.log('定时器1');
+  //     if (条件) {
+  //       success();
+  //     } else {
+  //       fail()
+  //     }
+  //     setTimeout(() => {
+  //       console.log('定时器2');
+  //       setTimeout(() => {
+  //         console.log('定时器3');
+  //       });
+  //     }, time);
+  //   }, time);
+  // }
+  //
+  // setTime(1000);
+
+
+  //resolve reject
+  function setTime2(num, time) {
+    return new Promise((resolve, reject) => {
+      setTimeout(function () {
+        if (num === 3) {
+          reject('失败');
+        } else {
+          resolve();
+        }
+      }, time)
+    })
+  }
+
+  //result
+  setTime2(1, 1000)
+    .then(res => {
+      console.log('人生第一次');
+      return setTime2(2, 500);
+    })
+    .then(res => {
+      console.log('人生第二次');
+      return setTime2(3, 1000);
+    })
+    .then(res => console.log('人生第三次'))
+    .catch(err => console.log(err));
+
+  /*
+  * 动画 : 3个动画 第一个动画执行结束 再执行第二个动画 再执行第三个动画
+  *
+  * */
+
+
+</script>
+</body>
+</html>

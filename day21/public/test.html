@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/request.js"></script>
+</head>
+<body>
+<button id="btnRegister">注册接口测试</button>
+<button id="btnLiogin">登录接口测试</button>
+<button id="btnChange">修改密码接口测试</button>
+
+<script>
+  btnRegister.onclick = async function () {
+    let res = await $request.postPromise('/api/register', {username: 'zhang', password: 'heihei'});
+    console.log(res);
+  };
+  btnLiogin.onclick = async function () {
+    let res = await $request.postPromise('/api/login', {username: 'zhang', password: 'heihei'});
+    console.log(res);
+  };
+  btnChange.onclick = async function () {
+    let res = await $request.postPromise('/api/changepwd', {username: 'zhang', oripassword: 'newpwd',newpassword:'123456'})
+    console.log(res);
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="js/request.js"></script>
+  <script src="javascripts/request.js"></script>
+</head>
+<body>
+<button id="btn1">请求ME</button>
+<button id="btn2">请求WANG</button>
+
+<script>
+  btn1.onclick = async function () {
+    let res = await $request.postPromise('/users/login', {username: 123, password: 123})
+    console.log(res);
+
+  };
+  btn2.onclick = function () {
+    request.post('/users/login', {username: 123, password: 123}, function (res) {
+      console.log(res);
+    });
+
+  }
+
+</script>
+</body>
+</html>

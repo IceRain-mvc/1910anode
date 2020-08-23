@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  /*
+  * 展开运算符  ...
+  *   数组
+  *   对象
+  * */
+  const arr = [1, 2, 3];
+  console.log(...arr);//1 2 3
+
+  const s = [...[1, 2, 3], ...[4, 5, 6]];//1,2,3   concat
+  console.log(s);
+
+  let obj = {a: 1, b: 2};
+  let person = {name: '小硕', age: 20};
+
+  //对象展开一般用一个新的对象接收
+  let o = {...obj, ...person};//o.a = obj.a; o.b = obj.b;
+  console.log(o);
+
+  /*
+  * 3:放在函数的参数里面
+  * 接收多个值 参数变成一个数组
+  * */
+  function add(...arr) {
+    //...arr 把arr
+    // 变成了一个数组 数组里面有一个元素 0:[1,2,3] 如果再传一个参数 [0:[1,2,3] 1:[4, 5, 6]]
+    console.log(arr);
+
+  }
+
+  add(...arr, ...[4, 5, 6]);
+  console.log(111);
+  // let arr = [111];
+  // add(1, 2, 3, 4, 5, 6);
+  // add(...arr);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>
+<script>
+  /*
+  * 数组的静态方法
+  * Array.from  将一个非数组-->数组  只能将伪数组变成数组
+  * Array.isArray  判断一个变量是不是数组
+  * */
+
+  /*
+  * 将一个非数组--》数组  Array.prototype 成员方法  Array.方法 静态方法
+  * Array.isArray() : 只能将伪数组变成数组  [下标]
+  * */
+  let newArr = Array.from('abc');
+  console.log(newArr);
+  console.log(Array.from(document.getElementsByTagName('li')));
+  console.log(Array.from(123));
+  // console.log(Array.from(undefined));
+  // console.log(Array.from(null));
+  console.log(Array.from({a:1,b:2}));
+  console.log(Array.from([1,2,3]));
+
+  //判断一个变量是不是数组
+  //typeof arr // object
+  //原理 是 利用 call 实现
+  console.log(Array.isArray({}));
+
+
+  /*
+  * 成员方法
+  * arr.forEach()
+  * arr.map()
+  * arr.every()
+  * arr.filter()
+  * arr.reduce()
+  * arr.some()
+  *
+  * */
+
+  /*
+  * es6 遍历一个数组
+  *
+  * es5 : push / pop / shift / unshift / reserve / sort/ join/ concat
+  *
+  * */
+
+
+  /*
+  * arr.forEach((item可写可不写,index可写可不写,arr可写可不写)=>{})
+  *
+  * 不能打断 break continue 都不能用
+  *   return 也不好使
+  * */
+
+  let arr = [1, 2, 3];
+  arr.forEach((item,index,arr)=>{
+    //item : 数组中的每一个元素
+    //index: 下标
+    //arr : 数组本身
+    console.log(item, index, arr);
+    // if (index === 1) {
+    //   return;
+    // }
+  })
+
+
+</script>
+</body>
+</html>

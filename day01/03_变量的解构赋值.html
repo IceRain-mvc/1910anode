@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  /*
+  * 解构赋值  解开重构后赋了一个值
+  *   1:数组
+  *   2:对象
+  *   3:字符串
+  * */
+
+  /*
+  * 数组:
+  *   语法  let [] = 数组
+  *   原则:一一对应
+  * */
+
+  let arr = [1, 2, 3];
+  // let a = arr[0];
+  // let b = arr[1];
+  // let c = arr[2];
+  // console.log(a, b, c);
+
+  let [a = 6, , c, d = 5] = [undefined, 1, 2, null];
+  console.log(d);//a和c都是变量
+  console.log(a);//a和c都是变量
+  //如果数组中有元素是undefined 设置的默认值就生效了
+  //null 可以被赋值
+
+
+  /*
+  * 对象
+  *   1:解构赋值
+  *   原则:根据key(键) 对应
+  *   写法 let {键一定是对象里面包含的} = 对象
+  * */
+
+  let obj = {
+    ss: 10,
+    tt: 20,
+  };
+  let {ss, tt} = obj;
+  console.log(ss, tt);
+
+  /*
+  * 2:关于对象的额外解释:简写
+  * */
+
+  let vv = [1, 2, 4];
+  let fn = function () {
+    console.log('fn');
+  };
+
+  let obj1 = {//键值对  键:字符串  值:任何类型
+    vv,//当键值名字一样的时候 可以简写  vv==>  vv:vv
+    fn
+  };
+
+  console.log(obj1.vv);
+  obj1.fn();
+  // console.log(obj1.fn());
+
+  /*
+  * 3:修改赋值变量名
+  * */
+  let datas = {
+    name: 'aaa',
+    age: 20
+  };
+  let {name:n,age:ag} = datas;
+  console.log(n, ag);
+
+  //__proto__ 隐式原型
+  /*
+  * 应用:
+  * 可以解构 原型方法
+  * */
+
+  let {toString} = datas;
+  console.log(toString);
+
+  //数组 也是对象 也是以键值对的形式存储的
+  // 0:1, 1:2
+  var arr1 = [1, 2, 3, 4, 5];
+  //arr1 .length
+  let {length,push:p,'1':value1} = arr1;
+  console.log(length);
+  console.log(p);
+  console.log(value1);
+
+  /*
+  * 字符串:  let atr = 'abcdef'
+  * atr[0]
+  * atr[1]
+  * atr[2]
+  *
+  * 和数组一样的方式 解构
+  * */
+
+  let str = 'fdshfhdsjkalf';
+  //[]里面是变量名字
+  let [jjj] = str;
+  console.log(jjj);
+
+
+
+
+
+</script>
+</body>
+</html>

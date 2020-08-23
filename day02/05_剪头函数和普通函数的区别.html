@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  /*
+  * 箭头函数不会绑定this, 如果出现箭头函数内部的this , 指向的就是上一级作用域的环境 这个作用域属于谁this就指向谁
+  *
+  * */
+  let person = {
+    say() {
+      const fn = function () {
+        console.log(this);//window
+      };
+      fn();
+    },
+
+    say1() {
+      console.log(this);
+      const fn1 = () => {
+        // console.log(this);//person
+
+        const fn2 = () => {
+          console.log(this === person);//person
+        };
+        fn2();
+      };
+      fn1();
+    }
+  };
+
+  // person.say();
+  person.say1();
+</script>
+</body>
+</html>

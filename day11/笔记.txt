@@ -1,0 +1,55 @@
+给大家几分钟思考 一会提问
+
+1. 列出常见的content-type并解释
+  application/json; charset=utf8
+  text/html
+  text/xml
+  image/png
+  image/jpeg
+  text/plain
+  text/css
+2. 如何设置使浏览器可以正确解析服务器发出内容的编码
+  response.writeHead(200,{
+    'Content-Type':'text/html;charset=utf8'
+  })
+  response.setHeader('Content-Type','text/html;charset=utf8')
+
+3. 模块url.parse参数是什么 返回什么
+  参数 req.url:字符串
+  对象 = url.parse(req.url)
+  对象.pathname
+  对象.params
+  对象.search
+
+  querystring
+
+4. node中的模块化注意些什么
+  多线程
+  引入模块 fs http url  path  querystring
+  机制 CommonJs
+    自带 require('fs') fs http url  path  querystring
+    第三方  require('jquery')
+    自己写 : require('./')
+
+  导出 导出
+  导出 exports  module.exports = {}  exports === module.exports // true
+  exports.xxx = 值/方法
+
+
+1:搭建一个较为完整的服务器
+  带 . 静态资源   http://localhost:端口/index.html
+    判断 static 有没有  aa.css  如果有  fs读取 返回  没有:返回404
+    判断 static 有没有  index.html  如果有  fs读取 返回  没有:返回404
+  不带 . api接口
+    http://localhost:端口/api
+    返回的是json数据 [{},{}] {list:[],name:''}
+
+
+浏览器请求的请求种类 向服务器请求
+  浏览器的地址
+  img src
+  link
+  script:src
+  a href
+
+

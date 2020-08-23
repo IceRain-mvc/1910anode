@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = [1, 2, 3, 4];
+
+  /*
+  * 参数 : 函数 每一个我们想要的参数 都在函数的参数里面
+  * 没有返回值
+  * */
+  let newArr = arr.forEach((item, index, arr) => {
+    console.log(item);
+  });
+  console.log(newArr);
+
+
+  let arr2 = [{name: '小候', age: 11},
+    {name: '小靳', age: 12},
+    {name: '小闫', age: 13}, {name: '小杨', age: 14}, {
+      name: '小袁',
+      age: 21
+    }, {name: '小赵', age: 22}, {name: '小兴', age: 23}, {name: '小康', age: 24}, {name: '小邵', age: 24}];
+  /*
+  * map:遍历
+  * 参数 : 是一个函数 每一个我们想要的参数 都在函数的参数里面
+  * 返回值 新的数组  newArray每次push的值 是map里面的返回值
+  * */
+
+  newArray = arr2.map((item, index, arr) => {
+    return ++item.age + 50;
+  });
+  console.log(newArray);
+
+  /*
+  * find:机制 forEach
+  * 从数组中查找到符合条件的元素, 返回一个我们查找到的元素在回调函数中返回我们查找的条件的第一个成员
+  * */
+  arr2 = [{name: '小候', age: 11},
+    {name: '小靳', age: 12},
+    {name: '小闫', age: 13}, {name: '小杨', age: 14}, {
+      name: '小袁',
+      age: 21
+    }, {name: '小赵', age: 22}, {name: '小兴', age: 23}, {name: '小康', age: 24}, {name: '小邵', age: 24}];
+
+  let has = arr2.find(item => {
+    return item.age > 20;
+  });
+  // console.log(num);
+  if (has) {//元素 / undefined
+    console.log('终于找到你,还好我没放弃');
+  } else {
+    console.log('终于我们还是擦肩儿过');
+  }
+
+  let index = arr2.findIndex(item => item.age === 11);
+  //如果没找到 返回-1 如果找到了 返回当前数组的下标
+  console.log('findIndex', index);
+
+  /*
+  * filter : 机制和forEach  过滤
+  * 返回值  : 新的数组 回调函数中返回的条件决定新的数组的元素
+  * */
+  newArr = arr2.filter((item, index) => {
+
+    //条件一旦满足 newArr就会push当前item
+    return item.age > 20;
+  });
+  console.log(newArr);
+  console.log(`可以看电影的成员有:`);
+  newArr.forEach(item => console.log(`${item.name}`));
+
+
+  /*
+  * every : 每一个都符合条件 只要有一个不符合条件 返回false
+  * */
+  let flag = arr2.every((item, index) => {
+    // return typeof item.age === 'number';
+    return item.age > 20;
+  });
+
+  console.log(flag);
+
+  /*
+  * some: 只要回调函数有某一个返回条件满足 就返回true
+  * */
+  flag = arr2.some(item => item.age > 20);
+  console.log(flag);
+
+  /*
+  * reduce 面试
+  *
+  * prev:  如果第一次循环 代表数组里面的第一个元素
+  *        不是第一次循环 代表上一次 回调函数的返回值
+  *
+  * next:  始终代表 下一次循环的元素
+  *
+  * */
+
+  [1, 2, 3, 4, 5].reduce((prev, next) => {
+    //1 , 2
+    //3 , 3
+    //6 , 4
+    console.log(prev, next);
+    return prev + next;
+  });
+
+  /*
+  * 常用      forEach  map   filter some
+  * 不太常用 : find    every  reduce findIndex
+  * */
+
+
+</script>
+</body>
+</html>

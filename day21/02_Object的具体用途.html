@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  // Object.assign();
+
+  //1:给类 添加属性
+  class Point{
+    constructor(x, y) {//10,20
+      Object.assign(this,{x, y})//合并对象  this.x this.y
+    }
+  }
+
+  let p = new Point(10, 20);
+  console.log(p.x);
+
+
+  //2:封装一些工具方法
+  const mergeObj = (target, ...source) => Object.assign(target, ...source);
+  const mergeObj1 = (...source) => Object.assign({}, ...source);
+  const clone = origin => Object.assign({}, origin);//浅拷贝
+
+  let res = mergeObj({a: 1}, {b: 124, c: 456, d: {f: 45678}}, {e: 33});
+  console.log(res);
+
+  // mergeObj1
+
+  //3:给对象添加方法
+  //以前
+  class Obj {
+
+  }
+
+
+  Obj.aaa = function () {
+    console.log('aaa');
+  };
+  console.log(Obj.aaa());
+
+  Object.assign(Obj, {
+    aaa: function () {
+      console.log('aaa')
+    },
+    bbb() {
+      console.log('bbb')
+    }
+  });
+
+  Obj.bbb()
+  // console.log();
+
+
+
+
+
+
+</script>
+</body>
+</html>

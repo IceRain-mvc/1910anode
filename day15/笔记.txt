@@ -1,0 +1,30 @@
+
+同学们早上好
+思考一下几个问题 一会提问
+  1:服务器会提供哪些资源让客户端访问
+    静态资源 .
+    json
+  2:前端的请求方式有哪些
+    get : 所有的东东都在地址中  快  ?name=zhangsan&age=20
+    post: 地址 + 请求体  慢
+
+  3:ajax和form的区别
+    form 会刷新页面
+    ajax 局部刷新
+
+  4:请求和响应过程都包含什么
+    请求:请求的基本信息General(请求地址+请求方式) 请求头(Request Header) 请求体Form Data(参数)
+    响应:响应头(Response Header content-type: application/javascript; charset=utf-8)  响应体(内容)
+  5:请求手段
+    web标签
+    form
+    浏览器地址
+    ajax
+
+今天:
+  npm
+    全局: 安装后 是听过命令的方式 去使用
+    本地: 通过 require() 的方式 使用 从node_modules
+
+  babel
+
